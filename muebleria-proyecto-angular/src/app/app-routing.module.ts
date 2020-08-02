@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { NationalManageComponent } from './views/national-manage/national-manage.component';
 import { GeneralManageComponent } from './views/general-manage/general-manage.component';
-import { ClientComponent } from './views/client/client.component';
 import { CeoComponent } from './views/ceo/ceo.component';
+import { ClientViewComponent } from './views/client-view/client-view.component';
 
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'client',
-    component : ClientComponent
+    component : ClientViewComponent
   },
   {
     path: 'ceo',
