@@ -5,6 +5,7 @@ import { NationalManageComponent } from './views/national-manage/national-manage
 import { GeneralManageComponent } from './views/general-manage/general-manage.component';
 import { CeoComponent } from './views/ceo/ceo.component';
 import { ClientViewComponent } from './views/client-view/client-view.component';
+import { RegisterComponent } from './views/register/register.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'ceo',
     component : CeoComponent
+  },
+  {
+    path: 'register',
+    component : RegisterComponent
   },
   {
     path: '**',
