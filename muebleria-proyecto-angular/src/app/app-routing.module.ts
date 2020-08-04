@@ -1,8 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
+import { NationalManageComponent } from './views/national-manage/national-manage.component';
+import { GeneralManageComponent } from './views/general-manage/general-manage.component';
+import { CeoComponent } from './views/ceo/ceo.component';
+import { ClientViewComponent } from './views/client-view/client-view.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'nationalManage',
+    component : NationalManageComponent
+  },
+  {
+    path: 'generalManage',
+    component : GeneralManageComponent
+  },
+  {
+    path: 'client',
+    component : ClientViewComponent
+  },
+  {
+    path: 'ceo',
+    component : CeoComponent
+  },
+  {
+    path: '**',
+    component : HomeComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
