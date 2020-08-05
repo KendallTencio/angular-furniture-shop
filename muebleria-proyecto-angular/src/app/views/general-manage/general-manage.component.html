@@ -1,1 +1,194 @@
-<p>general-manage works!</p>
+<div class="row" style="margin-top:15%; margin-bottom: 15%;">
+    <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class="card carBox">
+            <div class="card-body">
+                <div id="mySidenav" class="sidenav">
+                    <i class="fas fa-accessible-icon    ">
+                        <a (click)="sucursalPais = !sucursalPais"><i *ngIf="sucursalPais " class="arrow right"></i> Lista Sucursales del País </a>
+                    <a (click)="empleados = !empleados"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
+                    <a (click)="despedir = !despedir"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
+                    <a (click)="contratar=!contratar"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
+                    <a (click)="salarios = !salarios"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
+                    <a (click)="rango = !rango"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
+                    <a (click)="modificarSalario = !modificarSalario"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
+                    <a data-toggle="modal" data-target="#expectativaModal" (click)="expectativa = !expectativa"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
+
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-7  col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                Resultados
+            </div>
+            <div *ngIf="sucursalPais" class="card-body">
+                <ul *ngFor="let sucursal of listaSucursalesPais" class="list-group">
+                    <li class="list-group-item">{{sucursal.name}}</li>
+                </ul>
+            </div>
+            <div *ngIf="empleados" class="card-body">
+                <ul *ngFor="let empleado of listaEmpleados" class="list-group">
+                    <li class="list-group-item">{{empleado.name}}, Puesto: {{empleado.position}}</li>
+                </ul>
+            </div>
+            <div *ngIf="salarios" class="card-body">
+                <ul *ngFor="let empleado of listaEmpleados" class="list-group">
+                    <li class="list-group-item">{{empleado.name}}, Salario : ${{empleado.salary}}</li>
+                </ul>
+            </div>
+            <div *ngIf="despedir" class="card-body">
+                <form>
+                    <h4 class="text-center pb-5">Despedir empleado</h4>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nombre del empleado*</label>
+                        <input name="name" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido del empleado*</label>
+                        <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripción o razón del despedido</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-danger btn-lg text-center" (click)="despedir=!despedir">Despedir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="contratar" class="card-body">
+                <form>
+                    <h4 class="text-center pb-5">Contratar empleado</h4>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nombre del empleado*</label>
+                        <input name="name" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido del empleado*</label>
+                        <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Fecha de nacimiento*</label>
+                        <input name="fecha" type="date" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Puesto*</label>
+                        <input name="fecha" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Salario*</label>
+                        <input class="form-control" type="number">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" (click)="contratar=!contratar">Contratar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="rango" class="card-body">
+                <form>
+                    <h4 class="text-center pb-5">Definir Rango por puesto</h4>
+                    <div class="form-group">
+                        <label for="validationCustom04">Puestos</label>
+                        <select name="state" class="custom-select" id="validationCustom04" required>
+                            <option selected disabled value="">Escoger...</option>
+                            <option>Administrador de proyectos</option>
+                            <option>Jefe de bodega</option>
+                            <option>Ingeniero de software</option>
+                            <option>Albañil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Salario minímo</label>
+                        <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Salario máximo</label>
+                        <input class="form-control" type="number">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" (click)="rango=!rango">Definir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="modificarSalario" class="card-body">
+                <form>
+                    <h4 class="text-center pb-5">Modificar Salario</h4>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Nombre Empleado</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido Empleado</label>
+                        <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Sucursal perteneciente</label>
+                        <input class="form-control" type="number">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#exampleModal">Definir</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Definir nuevo salario </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Nuevo salario</label>
+                                        <input class="form-control" type="number">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="expectativa" class="card-body">
+                <!-- Modal -->
+                <div class="modal fade" id="expectativaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Expectativa de Demanda Mensual </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>La expectativa de ganancias definida por el gerente general para el mes {{month+1}} del año {{year}} es: $35000.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
