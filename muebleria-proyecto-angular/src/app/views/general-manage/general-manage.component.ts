@@ -14,7 +14,14 @@ export class GeneralManageComponent implements OnInit {
   contratar = false;
   rango = false;
   modificarSalario = false;
+  observarBono= false;
   expectativa = false;
+  agregarBackorder = false;
+  empleado = {
+    "name" : "",
+    "lastName":"",
+    "position" : ""
+  }
 
   date = new Date();
   
@@ -30,14 +37,21 @@ export class GeneralManageComponent implements OnInit {
   listaEmpleados =      [{"name" : "Kendall Tencio","salary": 3000, "position" : "Administrador de proyectos"},
                          {"name" : "Sergio Fonseca","salary": 4000,"position" : "Jefe de Bodega"},
                          {"name" : "Adrián Mora","salary": 5000,"position" : "Ingeniero de software"},
-                         {"name" : "Sebastian Segura","salary": 6000,"position" : "Albañil"}];
+                         {"name" : "Sebastian Segura","salary": 6000,"position" : "Albañil"},
+                         {"name" : "Luis Segura","salary": 6000,"position" : "Vendedor"},
+                        ];                       
+  listaVendedor = [{"name": "Luis Segura","bonus":600}]
 
-
-
+  listaPedidos =      [{"nombrePedido" : "Mesa","material": "Madera de Roble", "type" : "Mueble de Cocina","Medidas":"24x46"},
+                      {"nombrePedido" : "Silla","material": "Metal", "type" : "Mueble de Sala","Medidas":"15x20"},
+                      {"nombrePedido" : "Silla de Juego de Mesa","material": "Madera de pino", "type" : "Mueble de Cocina","Medidas":"15x20"},
+                      {"nombrePedido" : "Biblioteca","material": "Madera de Guanacaste", "type" : "Mueble de Decoración","Medidas":"100x300"},
+                      ];
   constructor() { }
 
   ngOnInit() {
-    console.log(this.date,this.month,this.year);
+    console.log(this.empleado);
+
   }
 
 }

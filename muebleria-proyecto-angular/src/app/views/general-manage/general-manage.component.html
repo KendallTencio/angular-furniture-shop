@@ -11,8 +11,9 @@
                     <a (click)="salarios = !salarios"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
                     <a (click)="rango = !rango"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
                     <a (click)="modificarSalario = !modificarSalario"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
+                    <a (click)="observarBono = !observarBono"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
+                    <a (click)="agregarBackorder = !agregarBackorder"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
                     <a data-toggle="modal" data-target="#expectativaModal" (click)="expectativa = !expectativa"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
-
                     </i>
                 </div>
             </div>
@@ -42,12 +43,16 @@
                 <form>
                     <h4 class="text-center pb-5">Despedir empleado</h4>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Nombre del empleado*</label>
-                        <input name="name" type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1">Nombre del Empleado*</label>
+                        <input [(ngModel)]="empleado.name" name="name" type="text" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Apellido del empleado*</label>
-                        <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1">Apellido del Empleado*</label>
+                        <input [(ngModel)]="empleado.lastName" name="lastName" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Puesto del Empleado</label>
+                        <textarea [(ngModel)]="empleado.position" name="position" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Descripción o razón del despedido</label>
@@ -55,7 +60,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <button type="button" class="btn btn-danger btn-lg text-center" (click)="despedir=!despedir">Despedir</button>
+                            <button type="button" class="btn btn-danger btn-lg text-center" data-toggle="modal" data-target="#generarPagoLiquidacion">Despedir</button>
                         </div>
                     </div>
                 </form>
@@ -189,6 +194,88 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <!-- Modal Pago Liquidacion-->
+                <div class="modal fade" id="generarPagoLiquidacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Generación del Pago de Liquidación </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label>Nombre Completo del Empleado:  </label>
+                                        <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sucursal en la que laboraba el empleado: </label>
+                                        <input class="form-control" type="text" value="San José">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Puesto del Empleado: </label>
+                                        <input class="form-control" type="text" value="{{empleado.position}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Monto recomendado de liquidación: </label>
+                                        <input class="form-control" type="text" value="$600">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Monto definido de liquidación: </label>
+                                        <input class="form-control" type="number" placeholder="$">
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="observarBono" class="card-body">
+                <ul *ngFor="let vendedor of listaVendedor" class="list-group">
+                    <li class="list-group-item">{{vendedor.name}} y su bono por pedido realizado es: ${{vendedor.bonus}} </li>
+                </ul>
+            </div>
+            <div *ngIf="agregarBackorder" class="card-body">
+                <h4>Seleccionar Pedidos</h4>
+                <div *ngFor= "let pedido of listaPedidos" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}}">
+                    <label class="custom-control-label" for="{{pedido.nombrePedido}}">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
+                  </div>
+                  <div class="row" style="margin-top: 2%;">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#confirmarBackorder">Confirmar</button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="confirmarBackorder" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Confirmación del Proceso</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            Se han agregado los pedidos seleccionados al Backorder y de igual forma a la Base de Datos
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="agregarBackorder=!agregarBackorder">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
         </div>
     </div>
 </div>
