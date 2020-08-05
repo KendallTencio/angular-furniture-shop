@@ -28,7 +28,7 @@ export class GeneralManageComponent implements OnInit {
       id: '01',
       material: 'X y Y.',
       price: '$60',
-      imagen: 'https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/11/furniture-logo.jpg'
+      imagen: 'https://static01.nyt.com/images/2015/05/24/realestate/20150524FURNITURE-slide-LKP3/20150524FURNITURE-slide-LKP3-master1050.jpg'
     },
     {
       title: 'Juego de sala',
@@ -38,7 +38,7 @@ export class GeneralManageComponent implements OnInit {
       imagen: 'https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/11/furniture-logo.jpg'
     },
     {
-      title: 'Mesa victoriana',
+      title: 'Mesa',
       id: '03',
       material: 'X y Y.',
       price: '$100',
