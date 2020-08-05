@@ -1,0 +1,57 @@
+<form style="margin-top: 15% ;margin-bottom: 70%;">
+    <h1 class="text-center pb-5">Registro de cliente</h1>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom01">Nombre </label>
+            <input [(ngModel)]="client.name" name="name" type="text" class="form-control" id="validationCustom01" required>
+
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom02">Apellido </label>
+            <input [(ngModel)]="client.lastname" name="lastname" type="text" class="form-control" id="validationCustom02" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom01">Correo electrónico </label>
+            <input [(ngModel)]="client.email" name="email" type="email" class="form-control" required>
+
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom02">Contraseña </label>
+            <input [(ngModel)]="client.password" name="password" type="password" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom03">País</label>
+            <input [(ngModel)]="client.country" name="country" type="text" class="form-control" id="validationCustom03" required>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">Provincia</label>
+            <select [(ngModel)]="client.state" name="state" class="custom-select" id="validationCustom04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>Cartago</option>
+          <option>San José</option>
+          <option>Alajuela</option>
+          <option>Puntarenas</option>
+          <option>Heredia</option>
+          <option>Guanacaste</option>
+          <option>Limón</option>
+        </select>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Zip</label>
+            <input [(ngModel)]="client.zip" name="zip" type="number" class="form-control" id="validationCustom05" required>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-success btn-lg text-center" (click)="registerClient()">Registrarse</button>
+        </div>
+    </div>
+</form>

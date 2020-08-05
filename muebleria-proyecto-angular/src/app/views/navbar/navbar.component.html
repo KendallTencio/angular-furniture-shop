@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbarC">
+    <a class="navbar-brand pl-5">Muebleria</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" routerLink="/">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label *ngIf="!authService.loggedIn()" class="nav-link text-dark mr-2">¿Aún no tienes cuenta?</label>
+            <button *ngIf="!authService.loggedIn()" class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/register">Registrarse</button>
+            <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0 text-dark" type="submit" (click)="authService.logoutUser()">Cerrar Sesión</button>
+        </form>
+    </div>
+</nav>

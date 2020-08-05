@@ -1,0 +1,51 @@
+<div style="margin-top: 15% ;">
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Iniciar Sesión</h1>
+        </div>
+    </div>
+    <div class="row mt-3 ">
+        <div class="col-12 d-flex justify-content-center">
+            <form class="loginForm ">
+                <div class="form-group ">
+                    <label for="exampleInputEmail1">Correo electrónico*</label>
+                    <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña*</label>
+                    <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label class="text-danger">*Campos Requeridos.</label>
+
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btn-lg text-center" (click)="login()">Iniciar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown-divider mt-lg-5"></div>
+
+    <h1 class="text-center mt-lg-5" style="padding-top: 10%;">Nuestra Fábrica</h1>
+    <div class="row p-lg-5">
+        <div class="col-4 image-box "><img src="assets/images/furniture2.jpg" class=" rounded  "></div>
+        <div class="col-4 image-box"><img src="assets/images/furniture3.jpg" class=" rounded  "></div>
+        <div class="col-4 image-box"><img src="assets/images/furniture1.jpg" class=" rounded  "></div>
+    </div>
+
+    <div class="row p-lg-5">
+        <div class="col-4 image-box"><img src="assets/images/furniture4.jpg" class="rounded  "></div>
+        <div class="col-4 image-box "><img src="assets/images/furniture5.jpg" class="rounded  "></div>
+        <div class="col-4 image-box"><img src="assets/images/furniture6.jpg" class="rounded  "></div>
+    </div>
+
+    <p class="text-justify mb-5">Nuestra mueblería cuenta con talleres diferentes países, sucursales de ventas en cada provincia/estado del país. La mueblería vende muebles solos así como juegos, por ejemplo el juego del comedor que puede ser de 4,6 u 8 sillas. Los muebles son producidos
+        en cada taller de acuerdo con una espectativa de demanda mensual; sin embargo un cliente puede hacer pedidos cuando guste.
+    </p>
+</div>
