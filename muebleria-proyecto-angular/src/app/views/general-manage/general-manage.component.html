@@ -1,1 +1,67 @@
-<p>general-manage works!</p>
+
+<h3>Manejo de taller</h3>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#avanceProdu" role="button" aria-expanded="false" aria-controls="avanceProdu">
+      Avances de producción
+    </a>
+  </p>
+<div class="collapse" id="avanceProdu">
+    <div class="row">
+      <div class="card col-6 p-1" *ngFor="let mueble of muebles">
+      <div class="card">
+          <div class="card-header">
+              Mueble: {{mueble.title}}
+          </div>
+          <div class="card-body">
+              <div class="form-group row">
+                  <div class="col-12">
+                      ID: {{mueble.id}}
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-12">
+                      Progreso de construcción: {{mueble.muebleProgress}}%
+                  </div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style='width: 25%;' aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">{{mueble.muebleProgress}}%</div>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<h3>Manejo de combos</h3>
+
+
+<h3>Inventario</h3>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu">
+    Inventario de productos
+  </a>
+</p>
+<div class="collapse" id="inventProdu">
+  <div class="row">
+    <div class="card col-6 p-1" *ngFor="let producto of productos">
+    <div class="card">
+        <img src={{producto.imagen}} class="card-img-top" style="width:400px;height:300px">
+        <div class="card-header">
+            Producto: {{producto.title}} | ID: {{producto.id}}
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-12">
+                  Material: {{producto.material}}
+                </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-12">
+                Precio: {{producto.price}}
+              </div>
+          </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
