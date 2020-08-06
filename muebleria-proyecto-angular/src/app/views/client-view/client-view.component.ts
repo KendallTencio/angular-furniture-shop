@@ -32,14 +32,7 @@ export class ClientViewComponent implements OnInit {
     }
   ];
 
-  listaDePedido = [    {
-    title: 'Mesa',
-    id: '03',
-    material: 'X y Y.',
-    price: '$100',
-    imagen: 'https://static01.nyt.com/images/2015/05/24/realestate/20150524FURNITURE-slide-LKP3/20150524FURNITURE-slide-LKP3-master1050.jpg'
-  }
-];
+  listaDePedido = [];
 
   constructor() {}
   url :any;
@@ -49,11 +42,9 @@ export class ClientViewComponent implements OnInit {
   }
 
   agregarProductoAListaPedido(i){
+    console.log(this.listaDePedido.length);
     this.listaDePedido.push(i);
     console.log(this.listaDePedido.length);
-    console.log("Pedido añadido: ");
-    console.log(this.listaDePedido[0].title);
-    console.log(this.listaDePedido[1].title);
   }
 
   onSelectFile(event) {
