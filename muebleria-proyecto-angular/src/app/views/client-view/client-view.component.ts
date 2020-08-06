@@ -35,6 +35,8 @@ export class ClientViewComponent implements OnInit {
   listaDePedido = [];
 
   constructor() {}
+  url :any;
+  imageApears = false;
 
   ngOnInit() {
   }
@@ -45,5 +47,16 @@ export class ClientViewComponent implements OnInit {
     console.log(this.listaDePedido.length);
   }
 
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event:any) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+  }
 
 }

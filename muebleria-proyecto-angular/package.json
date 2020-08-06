@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.4",
+    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.4",
     "@angular/compiler": "~8.2.4",
     "@angular/core": "~8.2.4",
@@ -21,6 +22,8 @@
     "@angular/router": "~8.2.4",
     "@syncfusion/ej2-angular-dropdowns": "^18.2.48",
     "bootstrap": "^4.5.0",
+    "chart.js": "^2.5.0",
+    "hammerjs": "^2.0.8",
     "jquery": "^3.5.1",
     "ng-multiselect-dropdown": "^0.2.10",
     "rxjs": "~6.4.0",
