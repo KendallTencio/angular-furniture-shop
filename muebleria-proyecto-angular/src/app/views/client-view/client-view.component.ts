@@ -9,6 +9,7 @@ export class ClientViewComponent implements OnInit {
 
   url :any;
   imageApears = false;
+  feedback=false;
   constructor() { }
 
   ngOnInit() {
