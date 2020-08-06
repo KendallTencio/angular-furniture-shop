@@ -121,6 +121,10 @@ promos = [
 
   }
 
+  crearPromo(){
+   // this.promos.push();
+  }
+
   activarPromo(i){
     this.promos[i].state = 'Activa'
   }
