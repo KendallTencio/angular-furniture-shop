@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-general-manage',
@@ -7,6 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralManageComponent implements OnInit {
 
+     // Aquí se define los datos productos para los combos.
+     public productosCombos: { [key: string]: Object; }[] = [
+          { Title: 'Id: 01 / Silla grande', id: '01' },
+          { Title: 'Id: 02 / Juego de sala', id: '02' },
+          { Title: 'Id: 03 / Mesa', id: '03' }       
+      ];
+      // Mapeo para el combobox.
+      public localFields: Object = { text: 'Title', value: 'id' };
+
+      public localWaterMark: string = 'Seleccionar productos';
+      public value: string[] = [];
+    
+
+
+//Muebles en construcción
   muebles = [
     {
       title: 'Silla',
@@ -22,6 +39,7 @@ export class GeneralManageComponent implements OnInit {
     }
   ];
 
+  //Productos de inventario mostrado
   productos = [
     {
       title: 'Silla grande',
@@ -31,28 +49,58 @@ export class GeneralManageComponent implements OnInit {
       imagen: 'https://static01.nyt.com/images/2015/05/24/realestate/20150524FURNITURE-slide-LKP3/20150524FURNITURE-slide-LKP3-master1050.jpg'
     },
     {
-      title: 'Juego de sala',
+      title: 'Juego Sala',
       id: '02',
       material: 'X y Y.',
       price: '$370',
-      imagen: 'https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/11/furniture-logo.jpg'
+      imagen: 'https://static01.nyt.com/images/2015/05/24/realestate/20150524FURNITURE-slide-LKP3/20150524FURNITURE-slide-LKP3-master1050.jpg'
     },
     {
       title: 'Mesa',
       id: '03',
       material: 'X y Y.',
       price: '$100',
-      imagen: 'https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/11/furniture-logo.jpg'
+      imagen: 'https://static01.nyt.com/images/2015/05/24/realestate/20150524FURNITURE-slide-LKP3/20150524FURNITURE-slide-LKP3-master1050.jpg'
     }
   ];
 
-  constructor() { 
-    
-
+//Promociones existentes
+promos = [
+  {
+    title: 'Sillas de verano',
+    id: 'PR01',
+    muebleType: 'Sillas de playa',
+    discountPercent: '70%',
+    muebleProgress: '10 días',
+    state: 'Activa'
+  },
+  {
+    title: 'Mesas de verano',
+    id: 'PR02',
+    muebleType: 'Mesas de playa',
+    discountPercent: '40%',
+    muebleProgress: '10 días',
+    state: 'Desactivada'
   }
+];
+
+
+  constructor() {}
 
   ngOnInit() {
+  }
+
+  agregarProductoACombo(){
 
   }
+
+  activarPromo(i){
+    this.promos[i].state = 'Activa'
+  }
+
+  desactivarPromo(i){
+    this.promos[i].state = 'Desactivada'
+  }
+
 
 }

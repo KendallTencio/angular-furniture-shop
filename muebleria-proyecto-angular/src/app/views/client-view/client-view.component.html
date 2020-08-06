@@ -1,1 +1,139 @@
-<p>client-view works!</p>
+<div class="container" id="myGroup">
+
+<h3>Catálogo</h3>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: olivedrab;border-color: olivedrab;">
+    Inventario de productos
+  </a>
+</p>
+<div class="collapse" id="inventProdu" data-parent="#myGroup">
+  <div class="row">
+    <div class="card col-3 p-1" *ngFor="let producto of productos; let i = index">
+    <div class="card">
+        <img src={{producto.imagen}} class="card-img-top" style="width:270px;height:270px;border-radius: 60px;">
+        <div class="card-header">
+            Producto: {{producto.title}} | ID: {{producto.id}}
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-12">
+                  Material: {{producto.material}}
+                </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-12">
+                Precio: {{producto.price}}
+              </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success" (click)="agregarProductoAListaPedido(i)">Comprar</button>
+            </div>
+          </div>  
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<span layout="row"><hr flex/></span>
+
+<h3>Pagos</h3>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#pagoOnline" role="button" aria-expanded="false" aria-controls="pagoOnline" style="background-color: olivedrab;border-color: olivedrab;">
+    Pago En Línea
+  </a>
+</p>
+<div class="collapse" id="pagoOnline" data-parent="#myGroup"> 
+    <div class="card" style="width: 600px;">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                  <label for="nombreDueno">Nombre de dueño</label>
+                  <input type="text" class="form-control" id="nombreDueno">
+                </div>
+                <div class="form-group">
+                  <label for="numeroTarjeta">Número de tarjeta</label>
+                  <input type="text" class="form-control" id="numeroTarjeta" placeholder="XXXX-XXXX-XXXX-XXXX">
+                </div>
+                <div class="form-row"> 
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputCV" placeholder="CV">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="number" class="form-control" id="Mes" placeholder="MM">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="number" class="form-control" id="Anio" placeholder="AA">
+                  </div>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCompletoRadio" value="option1" checked>
+                    <label class="form-check-label" for="pagoCompletoRadio">
+                      Pago completo
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCuotasRadio" value="option2">
+                    <label class="form-check-label" for="pagoCuotasRadio">
+                      Pago cuotas
+                    </label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Plazo de cuotas</option>
+                        <option>3 meses</option>
+                        <option>6 meses</option>
+                      </select>
+                  </div>
+                  
+                  <span layout="row"><hr flex/></span>
+                  
+                  <button type="submit" class="btn btn-primary">Pagar</button>
+                
+              </form>
+        </div>
+      </div>
+      <span layout="row"><hr flex/></span>
+</div>
+
+<p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#pagoPersona" role="button" aria-expanded="false" aria-controls="pagoPersona" style="background-color: olivedrab;border-color: olivedrab;">
+      Organizar pago en persona
+    </a>
+  </p>
+  <div class="collapse" id="pagoPersona" data-parent="#myGroup"> 
+      <div class="card" style="width: 600px;">
+          <div class="card-body">
+            <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+
+                  </div>
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-4">
+                    <label for="inputSucursal">Seleccionar sucursal</label>
+                    <select id="inputSucursal" class="form-control">
+                      <option selected>Sucursal</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputEmpleado">Seleccionar empleado</label>
+                    <select id="inputEmpleado" class="form-control">
+                      <option selected>Empleado</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <button type="button" class="btn btn-primary">Pagar</button>
+              </form>
+          </div>
+        </div>
+  </div>
+  
+  </div>
