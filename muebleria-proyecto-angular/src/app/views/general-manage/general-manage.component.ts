@@ -118,6 +118,7 @@ muebleTipoInput:string;
 porceDescInput:string;
 duracionInput:string;
 
+
   constructor() { }
 
   ngOnInit() {
@@ -130,7 +131,7 @@ duracionInput:string;
 
   crearPromocion(){
     this.promos.push({title: this.nombrePromoInput, 
-                      id:'PR0'+this.promos.length+1, 
+                      id:'PR0'+(this.promos.length+1), 
                       muebleType: this.muebleTipoInput, 
                       discountPercent: this.porceDescInput, 
                       validTime: this.duracionInput,
