@@ -37,7 +37,7 @@ export class GeneralManageComponent implements OnInit {
       title: 'Mesa',
       id: '02',
       description: 'Ejemplo de texto hablando del mueble.',
-      muebleProgress: '45'
+      muebleProgress: '78'
     }
   ];
 
