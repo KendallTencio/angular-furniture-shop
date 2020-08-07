@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {formatDate} from '@angular/common';
-import { PlatformLocation } from '@angular/common'
 @Component({
   selector: 'app-national-manage',
   templateUrl: './national-manage.component.html',
@@ -32,12 +31,8 @@ export class NationalManageComponent implements OnInit {
                          {"ID" : 255,"Fecha" : "2020-07-20","Sucursal": "Sucursal San José", "Productos" : [{"Producto" : "Silla grande", "Cantidad" : 2, "Total" : 2000}, {"Producto" : "Mesa", "Cantidad" : 1, "Total" : 3000}]},
                          {"ID" : 256,"Fecha" : "2020-08-02","Sucursal": "Sucursal Alajuela", "Productos" : [{"Producto" : "Mesa", "Cantidad" : 1, "Total" : 3000}]}];
 
-  constructor(private router: Router,private activeRoute :ActivatedRoute, location: PlatformLocation) { 
-    location.onPopState(() => {
+  constructor(private router: Router,private activeRoute :ActivatedRoute) { 
 
-      this.router.navigate(['report']);
-
-  });
   }
   
   ngOnInit() {
