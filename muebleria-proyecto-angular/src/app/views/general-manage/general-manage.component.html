@@ -150,7 +150,7 @@
             </div>
             <div *ngIf="modificarSalario" class="card-body">
                 <form>
-                    <h4 class="text-center pb-5">Modificar Salario</h4>
+                    <h4 class="text-center pb-5 titulos">Modificar Salario</h4>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Nombre Empleado</label>
                         <input class="form-control" type="text">
@@ -165,7 +165,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#exampleModal">Definir</button>
+                            <button type="button" class="btn btn-dark btn-lg text-center terceColor" data-toggle="modal" data-target="#exampleModal">Definir</button>
                         </div>
                     </div>
                 </form>
@@ -174,7 +174,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Definir nuevo salario </h5>
+                                <h5 class="modal-title titulos " id="exampleModalLabel">Definir nuevo salario </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -190,7 +190,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
+                                <button type="button" class="btn btn-dark terceColor " data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
                             </div>
                         </div>
                     </div>
