@@ -23,6 +23,8 @@ export class GeneralManageComponent implements OnInit {
     
 
 
+
+
 //Muebles en construcción
   muebles = [
     {
@@ -71,7 +73,7 @@ promos = [
     id: 'PR01',
     muebleType: 'Sillas de playa',
     discountPercent: '70%',
-    muebleProgress: '10 días',
+    validTime: '10 días',
     state: 'Activa'
   },
   {
@@ -79,7 +81,7 @@ promos = [
     id: 'PR02',
     muebleType: 'Mesas de playa',
     discountPercent: '40%',
-    muebleProgress: '10 días',
+    validTime: '10 días',
     state: 'Desactivada'
   }
 ];
@@ -110,6 +112,11 @@ promos = [
                          {"name" : "Sebastian Segura","salary": 6000,"position" : "Albañil"}];
 
 
+//Input de promoción nueva
+nombrePromoInput:string;
+muebleTipoInput:string;
+porceDescInput:string;
+duracionInput:string;
 
   constructor() { }
 
@@ -119,6 +126,16 @@ promos = [
 
   agregarProductoACombo(){
 
+  }
+
+  crearPromocion(){
+    this.promos.push({title: this.nombrePromoInput, 
+                      id:'PR0'+this.promos.length+1, 
+                      muebleType: this.muebleTipoInput, 
+                      discountPercent: this.porceDescInput, 
+                      validTime: this.duracionInput,
+                      state: 'Activa'}
+                    );
   }
 
   activarPromo(i){

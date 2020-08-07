@@ -105,22 +105,22 @@
 <form>
   <span layout="row"><hr flex/></span>
   <div class="form-group">
-    <label for="exampleInputEmail1">Nombre de promoción</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="nombrePromo">Nombre de promoción</label>
+    <input type="text" class="form-control" id="nombrePromo" [(ngModel)]="nombrePromoInput" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Tipo de mueble</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="muebleTipo">Tipo de mueble</label>
+    <input type="text" class="form-control" id="muebleTipo" [(ngModel)]="muebleTipoInput" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Porcentaje de descuento</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="porceDesc">Porcentaje de descuento</label>
+    <input type="text" class="form-control" id="porceDesc" [(ngModel)]="porceDescInput" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Duración</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="duracion">Duración</label>
+    <input type="text" class="form-control" id="duracion" [(ngModel)]="duracionInput" [ngModelOptions]="{standalone: true}">
   </div>
-  <button type="button" class="btn btn-primary">Crear promoción</button>
+  <button type="button" class="btn btn-primary" (click)="crearPromocion()">Crear promoción</button>
 </form>
 <span layout="row"><hr flex/></span>
 </div>
