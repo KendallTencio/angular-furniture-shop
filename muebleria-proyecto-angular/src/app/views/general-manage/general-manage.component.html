@@ -1,4 +1,5 @@
-<div class="row " style="margin-top:15%; margin-bottom: 45%;">
+
+<div class="row " style="margin-top:15%; margin-bottom: 5%;">
     <div class="col-lg-5 col-md-5 col-sm-12">
         <div class="card cuartoColor">
             <div class="card-body">
@@ -147,71 +148,71 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="modificarSalario " class="card-body ">
+            <div *ngIf="modificarSalario" class="card-body">
                 <form>
-                    <h4 class="text-center pb-5 titulos ">Modificar Salario</h4>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Nombre Empleado</label>
-                        <input class="form-control " type="text ">
+                    <h4 class="text-center pb-5">Modificar Salario</h4>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Nombre Empleado</label>
+                        <input class="form-control" type="text">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Apellido Empleado</label>
-                        <input name="fecha " type="number " class="form-control ">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido Empleado</label>
+                        <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Sucursal perteneciente</label>
-                        <input class="form-control " type="number ">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Sucursal perteneciente</label>
+                        <input class="form-control" type="number">
                     </div>
-                    <div class="row ">
-                        <div class="col-12 d-flex justify-content-center ">
-                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " data-toggle="modal " data-target="#exampleModal ">Definir</button>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#exampleModal">Definir</button>
                         </div>
                     </div>
                 </form>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal " data-backdrop="static " tabindex="-1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-                    <div class="modal-dialog ">
-                        <div class="modal-content ">
-                            <div class="modal-header ">
-                                <h5 class="modal-title titulos " id="exampleModalLabel ">Definir nuevo salario </h5>
-                                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                            <span aria-hidden="true ">&times;</span>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Definir nuevo salario </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                             </div>
-                            <div class="modal-body ">
+                            <div class="modal-body">
                                 <form>
 
-                                    <div class="form-group ">
-                                        <label for="exampleFormControlTextarea1 ">Nuevo salario</label>
-                                        <input class="form-control " type="number ">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Nuevo salario</label>
+                                        <input class="form-control" type="number">
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer ">
-                                <button type="button " class="btn btn-danger " data-dismiss="modal ">Cancelar</button>
-                                <button type="button " class="btn btn-dark terceColor " data-dismiss="modal " (click)="modificarSalario=!modificarSalario ">Guardar cambios</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div *ngIf="expectativa " class="card-body ">
+            <div *ngIf="expectativa" class="card-body">
                 <!-- Modal -->
-                <div class="modal fade " id="expectativaModal " data-backdrop="static " tabindex="-1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-                    <div class="modal-dialog ">
-                        <div class="modal-content ">
-                            <div class="modal-header ">
-                                <h5 class="modal-title titulos " id="exampleModalLabel ">Expectativa de Demanda Mensual </h5>
-                                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                            <span aria-hidden="true ">&times;</span>
+                <div class="modal fade" id="expectativaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Expectativa de Demanda Mensual </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                             </div>
-                            <div class="modal-body ">
+                            <div class="modal-body">
                                 <p>La expectativa de ganancias definida por el gerente general para el mes {{month+1}} del año {{year}} es: $35000.
                                 </p>
                             </div>
-                            <div class="modal-footer ">
-                                <button type="button " class="btn btn-secondary " data-dismiss="modal " (click)="expectativa=!expectativa ">Cerrar</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
 
                             </div>
                         </div>
@@ -222,12 +223,14 @@
     </div>
 </div>
 
+<span layout="row"><hr flex/></span>
 
-<div class="container" id="myGroup">
+
+<div class="container" id="myGroup" style="margin-bottom: 5%;">
 
     <h3>Manejo de taller</h3>
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#avanceProdu" role="button" aria-expanded="false" aria-controls="avanceProdu" style="background-color: #091540;border-color: #091540;">
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#avanceProdu" role="button" aria-expanded="false" aria-controls="avanceProdu" style="background-color: #091540;border-color: #091540;">
           Avances de producción
         </a>
     </p>
@@ -262,7 +265,7 @@
 
     <h3>Manejo de combos</h3>
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#comboCollapse" role="button" aria-expanded="false" aria-controls="comboCollapse" style="background-color: #091540;border-color: #091540;">
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#comboCollapse" role="button" aria-expanded="false" aria-controls="comboCollapse" style="background-color: #091540;border-color: #091540;">
         Generar nuevo combo
       </a>
     </p>
@@ -274,8 +277,8 @@
             </div>
             <div class="form-group">
                 <label for="productosAgregLabel">Productos agregados</label>
-                <ejs-multiselect id='localData' #local [dataSource]='productosCombos' [fields]='localFields' [placeholder]='localWaterMark' [value]='value'>
-                </ejs-multiselect>
+                <!-- <ejs-multiselect id='localData' #local [dataSource]='productosCombos' [fields]='localFields' [placeholder]='localWaterMark' [value]='value'>
+                </ejs-multiselect> -->
                 Se abriría la selección de sillas si se selecciona una mesa.
             </div>
             <div>
@@ -288,7 +291,7 @@
 
     <h3>Inventario</h3>
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: #091540;border-color: #091540;">
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: #091540;border-color: #091540;">
         Inventario de productos
       </a>
     </p>
@@ -321,7 +324,7 @@
 
     <h3>Manejo de promociones</h3>
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#crearPromo" role="button" aria-expanded="false" aria-controls="crearPromo" style="background-color: #091540;border-color: #091540;">
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#crearPromo" role="button" aria-expanded="false" aria-controls="crearPromo" style="background-color: #091540;border-color: #091540;">
         Crear promoción
       </a>
     </p>
@@ -350,7 +353,7 @@
     </div>
 
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#verPromos" role="button" aria-expanded="false" aria-controls="verPromos" style="background-color: #091540;border-color: #091540;">
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#verPromos" role="button" aria-expanded="false" aria-controls="verPromos" style="background-color: #091540;border-color: #091540;">
         Ver promociones
       </a>
     </p>
