@@ -3,12 +3,12 @@
 
     <div class="row">
         <div class="col-6">
-            <h1>Obtener Lista Países Trabajados </h1>
+            <h1 class="titulos">Obtener Lista Países Trabajados </h1>
             <p class="text-justify mb-5">Muestra información sobre los países en los que se tiene sucursales, el nombre, la cantidad de sucursales y el número de empleados de cada sucursal.
             </p>
             <div class="row mt-5">
                 <div class="col-12  d-flex justify-content-center">
-                    <button *ngIf="!ceoPais" type="button" class="btn btn-success" (click)="ceoPais = !ceoPais">Ver</button>
+                    <button *ngIf="!ceoPais" type="button" class="btn btn-dark terceColor" (click)="ceoPais = !ceoPais">Ver</button>
                     <button *ngIf="ceoPais" type="button" class="btn btn-secondary" (click)="ceoPais = !ceoPais">Minimizar</button>
                 </div>
             </div>

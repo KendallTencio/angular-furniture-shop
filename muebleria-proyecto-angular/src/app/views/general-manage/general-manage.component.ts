@@ -41,7 +41,7 @@ export class GeneralManageComponent implements OnInit {
   }
 
   changeFlag(flag:string){
-    console.log(flag,"AAAA")
+    
     if(flag === "sucursal"){
       this.sucursalPais = !this.sucursalPais ;
       this.empleados = false;
