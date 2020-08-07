@@ -1,21 +1,28 @@
-<div class="row" style="margin-top: 15%; margin-bottom: 15%;">
-    <div class="col-8">
-        <h1>Obtener Lista Países Trabajados </h1>
-        <p class="text-justify mb-5">Nuestra mueblería cuenta con talleres diferentes países, sucursales de ventas en cada provincia/estado del país. La mueblería vende muebles solos así como juegos, por ejemplo el juego del comedor que puede ser de 4,6 u 8 sillas. Los muebles son
-            producidos en cada taller de acuerdo con una espectativa de demanda mensual; sin embargo un cliente puede hacer pedidos cuando guste.
-        </p>
-        <div class="row mt-5">
-            <div class="col-12  d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary">Ver</button>
+<div style="margin-top: 15%; margin-bottom: 45%;">
+
+
+    <div class="row">
+        <div class="col-6">
+            <h1 class="titulos">Obtener Lista Países Trabajados </h1>
+            <p class="text-justify mb-5">Muestra información sobre los países en los que se tiene sucursales, el nombre, la cantidad de sucursales y el número de empleados de cada sucursal.
+            </p>
+            <div class="row mt-5">
+                <div class="col-12  d-flex justify-content-center">
+                    <button *ngIf="!ceoPais" type="button" class="btn btn-dark terceColor" (click)="ceoPais = !ceoPais">Ver</button>
+                    <button *ngIf="ceoPais" type="button" class="btn btn-secondary" (click)="ceoPais = !ceoPais">Minimizar</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <img src="assets/images/pais.jpeg" class="img-fluid rounded" alt="Responsive image">
+        </div>
+
+        <div class="card" *ngIf="ceoPais" style="width: 100%; margin-top: 5%;">
+            <div class="card-body">
+                <object data="assets/images/ceoPais.pdf" type="application/pdf" width="100%" height="800px">         
+            </object>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary"> Descargar</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-4">
-        <img src="assets/images/ceo.jpg" class="img-fluid" alt="Responsive image">
     </div>
 </div>

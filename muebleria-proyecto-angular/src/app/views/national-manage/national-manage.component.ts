@@ -12,4 +12,15 @@ export class NationalManageComponent implements OnInit {
   ngOnInit() {
   }
 
+  mesDemanda:String;
+  anioDemanda:String;
+  montoDemanda:String;
+
+  public static demandaMensual: String;
+
+  establecerDemandaMensual(){
+    NationalManageComponent.demandaMensual = "La expectativa de ganancias definida por el gerente nacional para el mes "+this.mesDemanda+" del año "+this.anioDemanda+" es:$"+this.montoDemanda;
+    console.log(NationalManageComponent.demandaMensual);
+  }
+
 }

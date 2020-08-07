@@ -7,8 +7,7 @@ footer {
     bottom: 0;
     width: 100%;
     height: auto;
-    background-color: rgb(102, 101, 101);
-    color: white;
+    background-color: #bcb8b8;
     padding: 2%;
 }
 
@@ -26,13 +25,13 @@ footer {
 }
 
 .fa-facebook {
-    color: white;
+    color: black;
 }
 
 .fa-instagram {
-    color: white;
+    color: black;
 }
 
 .fa-pinterest {
-    color: white;
+    color: black;
 }
