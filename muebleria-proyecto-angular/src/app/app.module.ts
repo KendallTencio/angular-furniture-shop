@@ -11,6 +11,7 @@ import { GeneralManageComponent } from './views/general-manage/general-manage.co
 import { NationalManageComponent } from './views/national-manage/national-manage.component';
 import { CeoComponent } from './views/ceo/ceo.component';
 import { ClientViewComponent } from './views/client-view/client-view.component';
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
 import { FooterComponent } from './views/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
@@ -30,6 +31,7 @@ import { RegisterComponent } from './views/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MultiSelectAllModule,
     BrowserAnimationsModule,
     FormsModule
   ],
