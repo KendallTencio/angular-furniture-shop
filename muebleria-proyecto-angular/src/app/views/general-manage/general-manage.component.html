@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div id="mySidenav" class="sidenav">
                     <i class="fas fa-accessible-icon    ">
-                        <a (click)="sucursalPais = !sucursalPais"><i *ngIf="sucursalPais " class="arrow right"></i> Lista Sucursales del País </a>
+                    <a (click)="sucursalPais = !sucursalPais"><i *ngIf="sucursalPais" class="arrow right"></i> Lista Sucursales del País </a>
                     <a (click)="empleados = !empleados"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
                     <a (click)="despedir = !despedir"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
                     <a (click)="contratar=!contratar"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
@@ -12,31 +12,62 @@
                     <a (click)="rango = !rango"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
                     <a (click)="modificarSalario = !modificarSalario"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
                     <a data-toggle="modal" data-target="#expectativaModal" (click)="expectativa = !expectativa"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
-
                     </i>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-7 col-md-7  col-sm-12">
-        <div class="card">
+        <div class="card cardC">
             <div class="card-header">
                 Resultados
             </div>
             <div *ngIf="sucursalPais" class="card-body">
-                <ul *ngFor="let sucursal of listaSucursalesPais" class="list-group">
-                    <li class="list-group-item">{{sucursal.name}}</li>
-                </ul>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Lugar</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let sucursal of listaSucursalesPais">
+                        <tr>
+                            <td>San José S.A</td>
+                            <td>{{sucursal.name}}</td>
+                        </tr>
+                </table>
             </div>
             <div *ngIf="empleados" class="card-body">
-                <ul *ngFor="let empleado of listaEmpleados" class="list-group">
-                    <li class="list-group-item">{{empleado.name}}, Puesto: {{empleado.position}}</li>
-                </ul>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let empleado of listaEmpleados">
+                        <tr>
+                            <td>{{empleado.name}}</td>
+                            <td>{{empleado.position}}</td>
+                            <td>${{empleado.salary}}</td>
+                        </tr>
+                </table>
             </div>
             <div *ngIf="salarios" class="card-body">
-                <ul *ngFor="let empleado of listaEmpleados" class="list-group">
-                    <li class="list-group-item">{{empleado.name}}, Salario : ${{empleado.salary}}</li>
-                </ul>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let empleado of listaEmpleados">
+                        <tr>
+                            <td>{{empleado.name}}</td>
+                            <td>${{empleado.salary}}</td>
+                        </tr>
+                </table>
             </div>
             <div *ngIf="despedir" class="card-body">
                 <form>

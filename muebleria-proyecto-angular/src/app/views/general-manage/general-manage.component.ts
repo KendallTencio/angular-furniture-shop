@@ -40,4 +40,6 @@ export class GeneralManageComponent implements OnInit {
     console.log(this.date,this.month,this.year);
   }
 
+  
+
 }
