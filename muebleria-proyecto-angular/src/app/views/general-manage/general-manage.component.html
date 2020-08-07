@@ -1,17 +1,17 @@
-<div class="row" style="margin-top:15%; margin-bottom: 15%;">
+<div class="row" style="margin-top:15%; margin-bottom: 45%;">
     <div class="col-lg-5 col-md-5 col-sm-12">
         <div class="card carBox">
             <div class="card-body">
                 <div id="mySidenav" class="sidenav">
                     <i class="fas fa-accessible-icon    ">
-                    <a (click)="sucursalPais = !sucursalPais"><i *ngIf="sucursalPais" class="arrow right"></i> Lista Sucursales del País </a>
-                    <a (click)="empleados = !empleados"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
-                    <a (click)="despedir = !despedir"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
-                    <a (click)="contratar=!contratar"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
-                    <a (click)="salarios = !salarios"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
-                    <a (click)="rango = !rango"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
-                    <a (click)="modificarSalario = !modificarSalario"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
-                    <a data-toggle="modal" data-target="#expectativaModal" (click)="expectativa = !expectativa"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
+                        <a (click)="changeFlag('sucursal')"><i *ngIf="sucursalPais" class="arrow right"></i> Lista Sucursales del País </a>
+                    <a (click)="changeFlag('empleados')"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
+                    <a (click)="changeFlag('despedir')"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
+                    <a (click)="changeFlag('contratar')"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
+                    <a (click)="changeFlag('salarios')"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
+                    <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
+                    <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
+                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa')"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
                     </i>
                 </div>
             </div>
