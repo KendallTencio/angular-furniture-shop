@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   client : Client;
-  
+  errorFlag = false;
   user = {
     "email" : "",
-    "password" : ""
+    "password" : "" 
   }
 
   constructor(private router : Router) { }
@@ -42,9 +42,16 @@ export class HomeComponent implements OnInit {
           if(this.client.email == this.user.email && this.client.password == this.user.password){
             localStorage.setItem("token",this.client.name.toString());
             this.router.navigate(['/client']);
+          }else{
+            this.errorFlag = !this.errorFlag;
           }
+        }else{
+          this.errorFlag = !this.errorFlag;
         }
       }
+    }else{
+      this.errorFlag = !this.errorFlag;
+      
     }
   }
 

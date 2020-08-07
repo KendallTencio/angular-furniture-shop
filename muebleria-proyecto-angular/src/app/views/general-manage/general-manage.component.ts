@@ -122,9 +122,87 @@ duracionInput:string;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.date,this.month,this.year);
+    
   }
 
+  changeFlag(flag:string){
+    
+    if(flag === "sucursal"){
+      this.sucursalPais = !this.sucursalPais ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }else if( flag === "empleados"){
+      this.sucursalPais = false ;
+      this.empleados = !this.empleados;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    } else if (flag ==="salarios"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = !this.salarios;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }else if (flag ==="despedir"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = !this.despedir;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }else if (flag ==="contratar"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = !this.contratar;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }else if (flag ==="rango"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = !this.rango;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }else if (flag ==="modificarSalario"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = !this.modificarSalario;
+      this.expectativa = false;
+    }else{
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.modificarSalario = false;
+      this.expectativa =!this.expectativa ;
+    }
+
+  }
+  
   agregarProductoACombo(){
 
   }

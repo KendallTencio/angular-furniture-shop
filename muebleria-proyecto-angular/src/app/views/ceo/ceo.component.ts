@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ceo.component.css']
 })
 export class CeoComponent implements OnInit {
-
+  ceoPais = false;
   constructor() { }
 
   ngOnInit() {

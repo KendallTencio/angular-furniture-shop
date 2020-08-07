@@ -1,352 +1,387 @@
 
-<div class="container" id="myGroup">
-
-<h3>Manejo de taller</h3>
-  <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#avanceProdu" role="button" aria-expanded="false" aria-controls="avanceProdu" style="background-color: #091540;border-color: #091540;">
-      Avances de producción
-    </a>
-  </p>
-<div class="collapse" id="avanceProdu" data-parent="#myGroup">
-    <div class="row">
-      <div class="card col-6 p-1" *ngFor="let mueble of muebles">
-      <div class="card">
-          <div class="card-header">
-              Mueble: {{mueble.title}}
-          </div>
-          <div class="card-body">
-              <div class="form-group row">
-                  <div class="col-12">
-                      ID: {{mueble.id}}
-                  </div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" [ngStyle]="{width: mueble.muebleProgress+ '%'}" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">{{mueble.muebleProgress}}%</div>
-              </div>
-          </div>
-      </div>
-      </div>
-  </div>
-</div>
-
-<span layout="row"><hr flex/></span>
-
-<h3>Manejo de combos</h3>
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#comboCollapse" role="button" aria-expanded="false" aria-controls="comboCollapse" style="background-color: #091540;border-color: #091540;">
-    Generar nuevo combo
-  </a>
-</p>
-<div class="collapse" id="comboCollapse" data-parent="#myGroup">
-  <form>
-    <div class="form-group">
-      <label for="nombreComboLabel">Nombre de combo</label>
-      <input type="text" class="form-control" id="nombreCombo">
-    </div>
-    <div class="form-group">
-      <label for="productosAgregLabel">Productos agregados</label>
-      <ejs-multiselect id='localData' #local [dataSource]='productosCombos' [fields]='localFields' [placeholder]='localWaterMark' [value]='value'>
-      </ejs-multiselect> 
-          Se abriría la selección de sillas si se selecciona una mesa.
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="agregarProductoACombo()">Generar combo</button>
-    </div>
-  </form>
-</div>
-
-<span layout="row"><hr flex/></span>
-
-<h3>Inventario</h3>
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: #091540;border-color: #091540;">
-    Inventario de productos
-  </a>
-</p>
-<div class="collapse" id="inventProdu" data-parent="#myGroup">
-  <div class="row">
-    <div class="card col-3 p-1" *ngFor="let producto of productos">
-    <div class="card">
-        <img src={{producto.imagen}} class="card-img-top" style="width:270px;height:270px;border-radius: 60px;">
-        <div class="card-header">
-            Producto: {{producto.title}} | ID: {{producto.id}}
-        </div>
-        <div class="card-body">
-            <div class="form-group row">
-                <div class="col-12">
-                  Material: {{producto.material}}
+<div class="row " style="margin-top:15%; margin-bottom: 5%;">
+    <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class="card cuartoColor">
+            <div class="card-body">
+                <div id="mySidenav" class="sidenav">
+                    <a (click)="changeFlag('sucursal')"><i *ngIf="sucursalPais" class="arrow right"></i> Lista Sucursales del País </a>
+                    <a (click)="changeFlag('empleados')"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
+                    <a (click)="changeFlag('despedir')"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
+                    <a (click)="changeFlag('contratar')"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
+                    <a (click)="changeFlag('salarios')"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
+                    <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
+                    <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
+                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa')"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
                 </div>
             </div>
-            <div class="form-group row">
-              <div class="col-12">
-                Precio: {{producto.price}}
-              </div>
-          </div>
         </div>
     </div>
-    </div>
-</div>
-</div>
-
-<span layout="row"><hr flex/></span>
-
-<h3>Manejo de promociones</h3>
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#crearPromo" role="button" aria-expanded="false" aria-controls="crearPromo" style="background-color: #091540;border-color: #091540;">
-    Crear promoción
-  </a>
-</p>
-<div class="collapse" id="crearPromo" data-parent="#myGroup">
-<form>
-  <span layout="row"><hr flex/></span>
-  <div class="form-group">
-    <label for="nombrePromo">Nombre de promoción</label>
-    <input type="text" class="form-control" id="nombrePromo" [(ngModel)]="nombrePromoInput" [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <label for="muebleTipo">Tipo de mueble</label>
-    <input type="text" class="form-control" id="muebleTipo" [(ngModel)]="muebleTipoInput" [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <label for="porceDesc">Porcentaje de descuento</label>
-    <input type="text" class="form-control" id="porceDesc" [(ngModel)]="porceDescInput" [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <label for="duracion">Duración</label>
-    <input type="text" class="form-control" id="duracion" [(ngModel)]="duracionInput" [ngModelOptions]="{standalone: true}">
-  </div>
-  <button type="button" class="btn btn-primary" (click)="crearPromocion()">Crear promoción</button>
-</form>
-<span layout="row"><hr flex/></span>
-</div>
-
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#verPromos" role="button" aria-expanded="false" aria-controls="verPromos" style="background-color: #091540;border-color: #091540;">
-    Ver promociones
-  </a>
-</p>
-<div class="collapse" id="verPromos" data-parent="#myGroup">
-  <div class="row">
-    <div class="card col-6 p-1" *ngFor="let promo of promos; let i = index">
-    <div class="card">
-        <div class="card-header">
-            {{promo.title}}
-        </div>
-        <div class="card-body">
-            <div class="form-group row">
-                <div class="col-12">
-                    ID: {{promo.id}}
-                </div>
-                <div class="col-12">
-                    Estado: {{promo.state}}
-              </div>
+    <div class="col-lg-7 col-md-7  col-sm-12 ">
+        <div class="card ">
+            <div class="card-header terceColor text-light">
+                Resultados
             </div>
-            <div class="form-group row">
-                <div class="col-12">
-                    <button type="button" class="btn btn-success" (click)="activarPromo(i)">Activar</button>
-                    <button type="button" class="btn btn-danger" (click)="desactivarPromo(i)">Desactivar</button>
+            <div *ngIf="sucursalPais" class="card-body">
+                <table class="table table-bordered ">
+                    <thead class="thead-light ">
+                        <tr>
+                            <th scope="col ">Nombre</th>
+                            <th scope="col ">Lugar</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let sucursal of listaSucursalesPais ">
+                        <tr>
+                            <td>San José S.A</td>
+                            <td>{{sucursal.name}}</td>
+                        </tr>
+                </table>
+            </div>
+            <div *ngIf="empleados " class="card-body ">
+                <table class="table table-bordered">
+                    <thead class="thead-light ">
+                        <tr>
+                            <th scope="col ">Nombre</th>
+                            <th scope="col ">Puesto</th>
+                            <th scope="col ">Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let empleado of listaEmpleados ">
+                        <tr>
+                            <td>{{empleado.name}}</td>
+                            <td>{{empleado.position}}</td>
+                            <td>${{empleado.salary}}</td>
+                        </tr>
+                </table>
+            </div>
+            <div *ngIf="salarios " class="card-body ">
+                <table class="table table-bordered">
+                    <thead class="thead-light ">
+                        <tr>
+                            <th scope="col ">Nombre</th>
+                            <th scope="col ">Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let empleado of listaEmpleados ">
+                        <tr>
+                            <td>{{empleado.name}}</td>
+                            <td>${{empleado.salary}}</td>
+                        </tr>
+                </table>
+            </div>
+            <div *ngIf="despedir " class="card-body ">
+                <form>
+                    <h4 class="text-center pb-5 titulos ">Despedir empleado</h4>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Nombre del empleado*</label>
+                        <input name="name " type="text " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Apellido del empleado*</label>
+                        <input name="lastname " type="text " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlTextarea1 ">Descripción o razón del despedido</label>
+                        <textarea class="form-control " id="exampleFormControlTextarea1 " rows="3 "></textarea>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 d-flex justify-content-center ">
+                            <button type="button " class="btn btn-danger btn-lg text-center " (click)="despedir=!despedir ">Despedir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="contratar " class="card-body ">
+                <form>
+                    <h4 class="text-center pb-5 titulos titulos ">Contratar empleado</h4>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Nombre del empleado*</label>
+                        <input name="name " type="text " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Apellido del empleado*</label>
+                        <input name="lastname " type="text " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Fecha de nacimiento*</label>
+                        <input name="fecha " type="date " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Puesto*</label>
+                        <input name="fecha " type="text " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlTextarea1 ">Salario*</label>
+                        <input class="form-control " type="number ">
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 d-flex justify-content-center ">
+                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="contratar=!contratar ">Contratar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="rango " class="card-body ">
+                <form>
+                    <h4 class="text-center pb-5 titulos ">Definir Rango por puesto</h4>
+                    <div class="form-group ">
+                        <label for="validationCustom04 ">Puestos</label>
+                        <select name="state " class="custom-select " id="validationCustom04 " required>
+                            <option selected disabled value=" ">Escoger...</option>
+                            <option>Administrador de proyectos</option>
+                            <option>Jefe de bodega</option>
+                            <option>Ingeniero de software</option>
+                            <option>Albañil</option>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1 ">Salario minímo</label>
+                        <input name="fecha " type="number " class="form-control " id="exampleInputPassword1 ">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlTextarea1 ">Salario máximo</label>
+                        <input class="form-control " type="number ">
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 d-flex justify-content-center ">
+                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="rango=!rango ">Definir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="modificarSalario" class="card-body">
+                <form>
+                    <h4 class="text-center pb-5">Modificar Salario</h4>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Nombre Empleado</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido Empleado</label>
+                        <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Sucursal perteneciente</label>
+                        <input class="form-control" type="number">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#exampleModal">Definir</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Definir nuevo salario </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Nuevo salario</label>
+                                        <input class="form-control" type="number">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="expectativa" class="card-body">
+                <!-- Modal -->
+                <div class="modal fade" id="expectativaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Expectativa de Demanda Mensual </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>La expectativa de ganancias definida por el gerente general para el mes {{month+1}} del año {{year}} es: $35000.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
 
-</div>
+<span layout="row"><hr flex/></span>
 
 
+<div class="container" id="myGroup" style="margin-bottom: 5%;">
 
-<div class="row" style="margin-top:15%; margin-bottom: 15%;">
-  <div class="col-lg-5 col-md-5 col-sm-12">
-      <div class="card carBox">
-          <div class="card-body">
-              <div id="mySidenav" class="sidenav">
-                  <i class="fas fa-accessible-icon    ">
-                      <a (click)="sucursalPais = !sucursalPais"><i *ngIf="sucursalPais " class="arrow right"></i> Lista Sucursales del País </a>
-                  <a (click)="empleados = !empleados"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
-                  <a (click)="despedir = !despedir"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
-                  <a (click)="contratar=!contratar"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
-                  <a (click)="salarios = !salarios"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
-                  <a (click)="rango = !rango"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
-                  <a (click)="modificarSalario = !modificarSalario"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
-                  <a data-toggle="modal" data-target="#expectativaModal" (click)="expectativa = !expectativa"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
+    <h3>Manejo de taller</h3>
+    <p>
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#avanceProdu" role="button" aria-expanded="false" aria-controls="avanceProdu" style="background-color: #091540;border-color: #091540;">
+          Avances de producción
+        </a>
+    </p>
+    <div class="collapse" id="avanceProdu" data-parent="#myGroup">
+        <div class="row">
+            <div class="card col-6 p-1" *ngFor="let mueble of muebles">
+                <div class="card">
+                    <div class="card-header">
+                        Mueble: {{mueble.title}}
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                ID: {{mueble.id}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                Progreso de construcción: {{mueble.muebleProgress}}%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style='width: 25%;' aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">{{mueble.muebleProgress}}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                  </i>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-lg-7 col-md-7  col-sm-12">
-      <div class="card">
-          <div class="card-header">
-              Resultados
-          </div>
-          <div *ngIf="sucursalPais" class="card-body">
-              <ul *ngFor="let sucursal of listaSucursalesPais" class="list-group">
-                  <li class="list-group-item">{{sucursal.name}}</li>
-              </ul>
-          </div>
-          <div *ngIf="empleados" class="card-body">
-              <ul *ngFor="let empleado of listaEmpleados" class="list-group">
-                  <li class="list-group-item">{{empleado.name}}, Puesto: {{empleado.position}}</li>
-              </ul>
-          </div>
-          <div *ngIf="salarios" class="card-body">
-              <ul *ngFor="let empleado of listaEmpleados" class="list-group">
-                  <li class="list-group-item">{{empleado.name}}, Salario : ${{empleado.salary}}</li>
-              </ul>
-          </div>
-          <div *ngIf="despedir" class="card-body">
-              <form>
-                  <h4 class="text-center pb-5">Despedir empleado</h4>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Nombre del empleado*</label>
-                      <input name="name" type="text" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Apellido del empleado*</label>
-                      <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Descripción o razón del despedido</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                  <div class="row">
-                      <div class="col-12 d-flex justify-content-center">
-                          <button type="button" class="btn btn-danger btn-lg text-center" (click)="despedir=!despedir">Despedir</button>
-                      </div>
-                  </div>
-              </form>
-          </div>
-          <div *ngIf="contratar" class="card-body">
-              <form>
-                  <h4 class="text-center pb-5">Contratar empleado</h4>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Nombre del empleado*</label>
-                      <input name="name" type="text" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Apellido del empleado*</label>
-                      <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Fecha de nacimiento*</label>
-                      <input name="fecha" type="date" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Puesto*</label>
-                      <input name="fecha" type="text" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Salario*</label>
-                      <input class="form-control" type="number">
-                  </div>
-                  <div class="row">
-                      <div class="col-12 d-flex justify-content-center">
-                          <button type="button" class="btn btn-success btn-lg text-center" (click)="contratar=!contratar">Contratar</button>
-                      </div>
-                  </div>
-              </form>
-          </div>
-          <div *ngIf="rango" class="card-body">
-              <form>
-                  <h4 class="text-center pb-5">Definir Rango por puesto</h4>
-                  <div class="form-group">
-                      <label for="validationCustom04">Puestos</label>
-                      <select name="state" class="custom-select" id="validationCustom04" required>
-                          <option selected disabled value="">Escoger...</option>
-                          <option>Administrador de proyectos</option>
-                          <option>Jefe de bodega</option>
-                          <option>Ingeniero de software</option>
-                          <option>Albañil</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Salario minímo</label>
-                      <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Salario máximo</label>
-                      <input class="form-control" type="number">
-                  </div>
-                  <div class="row">
-                      <div class="col-12 d-flex justify-content-center">
-                          <button type="button" class="btn btn-success btn-lg text-center" (click)="rango=!rango">Definir</button>
-                      </div>
-                  </div>
-              </form>
-          </div>
-          <div *ngIf="modificarSalario" class="card-body">
-              <form>
-                  <h4 class="text-center pb-5">Modificar Salario</h4>
-                  <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Nombre Empleado</label>
-                      <input class="form-control" type="text">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Apellido Empleado</label>
-                      <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Sucursal perteneciente</label>
-                      <input class="form-control" type="number">
-                  </div>
-                  <div class="row">
-                      <div class="col-12 d-flex justify-content-center">
-                          <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#exampleModal">Definir</button>
-                      </div>
-                  </div>
-              </form>
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Definir nuevo salario </h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                          </div>
-                          <div class="modal-body">
-                              <form>
+    <span layout="row"><hr flex/></span>
 
-                                  <div class="form-group">
-                                      <label for="exampleFormControlTextarea1">Nuevo salario</label>
-                                      <input class="form-control" type="number">
-                                  </div>
-                              </form>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div *ngIf="expectativa" class="card-body">
-              <!-- Modal -->
-              <div class="modal fade" id="expectativaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Expectativa de Demanda Mensual </h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                          </div>
-                          <div class="modal-body">
-                              <p>  La expectativa de ganancias definida por el gerente general para el mes {{month+1}} del año {{year}} es: $35000.
-                              </p>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
+    <h3>Manejo de combos</h3>
+    <p>
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#comboCollapse" role="button" aria-expanded="false" aria-controls="comboCollapse" style="background-color: #091540;border-color: #091540;">
+        Generar nuevo combo
+      </a>
+    </p>
+    <div class="collapse" id="comboCollapse" data-parent="#myGroup">
+        <form>
+            <div class="form-group">
+                <label for="nombreComboLabel">Nombre de combo</label>
+                <input type="text" class="form-control" id="nombreCombo">
+            </div>
+            <div class="form-group">
+                <label for="productosAgregLabel">Productos agregados</label>
+                <!-- <ejs-multiselect id='localData' #local [dataSource]='productosCombos' [fields]='localFields' [placeholder]='localWaterMark' [value]='value'>
+                </ejs-multiselect> -->
+                Se abriría la selección de sillas si se selecciona una mesa.
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="agregarProductoACombo()">Generar combo</button>
+            </div>
+        </form>
+    </div>
 
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+    <span layout="row"><hr flex/></span>
+
+    <h3>Inventario</h3>
+    <p>
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: #091540;border-color: #091540;">
+        Inventario de productos
+      </a>
+    </p>
+    <div class="collapse" id="inventProdu" data-parent="#myGroup">
+        <div class="row">
+            <div class="card col-3 p-1" *ngFor="let producto of productos">
+                <div class="card">
+                    <img src={{producto.imagen}} class="card-img-top" style="width:270px;height:270px;border-radius: 60px;">
+                    <div class="card-header">
+                        Producto: {{producto.title}} | ID: {{producto.id}}
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                Material: {{producto.material}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                Precio: {{producto.price}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span layout="row"><hr flex/></span>
+
+    <h3>Manejo de promociones</h3>
+    <p>
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#crearPromo" role="button" aria-expanded="false" aria-controls="crearPromo" style="background-color: #091540;border-color: #091540;">
+        Crear promoción
+      </a>
+    </p>
+    <div class="collapse" id="crearPromo" data-parent="#myGroup">
+        <form>
+            <span layout="row"><hr flex/></span>
+            <div class="form-group">
+                <label for="nombrePromo">Nombre de promoción</label>
+                <input type="text" class="form-control" id="nombrePromo" [(ngModel)]="nombrePromoInput" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="muebleTipo">Tipo de mueble</label>
+                <input type="text" class="form-control" id="muebleTipo" [(ngModel)]="muebleTipoInput" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="porceDesc">Porcentaje de descuento</label>
+                <input type="text" class="form-control" id="porceDesc" [(ngModel)]="porceDescInput" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="duracion">Duración</label>
+                <input type="text" class="form-control" id="duracion" [(ngModel)]="duracionInput" [ngModelOptions]="{standalone: true}">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="crearPromocion()">Crear promoción</button>
+        </form>
+        <span layout="row"><hr flex/></span>
+    </div>
+
+    <p>
+        <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#verPromos" role="button" aria-expanded="false" aria-controls="verPromos" style="background-color: #091540;border-color: #091540;">
+        Ver promociones
+      </a>
+    </p>
+    <div class="collapse" id="verPromos" data-parent="#myGroup">
+        <div class="row">
+            <div class="card col-6 p-1" *ngFor="let promo of promos; let i = index">
+                <div class="card">
+                    <div class="card-header">
+                        {{promo.title}}
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                ID: {{promo.id}}
+                            </div>
+                            <div class="col-12">
+                                Estado: {{promo.state}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-success" (click)="activarPromo(i)">Activar</button>
+                                <button type="button" class="btn btn-danger" (click)="desactivarPromo(i)">Desactivar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

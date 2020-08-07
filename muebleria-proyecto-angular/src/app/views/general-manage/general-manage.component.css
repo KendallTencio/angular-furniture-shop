@@ -9,7 +9,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 15px;
-    color: black;
+    color: white;
     display: block;
     transition: 0.3s;
 }
@@ -44,4 +44,15 @@
 .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.cardC {
+    background-color: #D4DEDE;
+    -webkit-box-shadow: -17px 1px 20px 1px rgba(143, 135, 143, 1);
+    -moz-box-shadow: -17px 1px 20px 1px rgba(143, 135, 143, 1);
+    box-shadow: -17px 1px 20px 1px rgba(143, 135, 143, 1);
+}
+
+.bottonSize {
+    width: 25%;
 }
