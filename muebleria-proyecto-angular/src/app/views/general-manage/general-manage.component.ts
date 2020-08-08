@@ -92,6 +92,7 @@ promos = [
   despedir = false;
   contratar = false;
   rango = false;
+  rangoBono = false;
   modificarSalario = false;
   observarBono= false;
   expectativa = false;
@@ -153,6 +154,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if( flag === "empleados"){
@@ -162,6 +164,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     } else if (flag ==="salarios"){
@@ -171,6 +174,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="despedir"){
@@ -180,6 +184,7 @@ demandaNacional : string;
       this.despedir = !this.despedir;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="contratar"){
@@ -189,6 +194,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = !this.contratar;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="rango"){
@@ -198,6 +204,18 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = !this.rango;
+      this.rangoBono = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }
+    else if (flag ==="rangoBono"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.rangoBono = !this.rangoBono;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="modificarSalario"){
@@ -207,6 +225,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = !this.modificarSalario;
       this.expectativa = false;
     }else{
@@ -216,6 +235,7 @@ demandaNacional : string;
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa =!this.expectativa ;
     }
