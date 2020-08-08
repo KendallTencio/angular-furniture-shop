@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../models/auth.service';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,18 @@ import { AuthService } from '../../models/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  flagHeader = false;
+
   constructor(public authService : AuthService) { }
 
   ngOnInit() {
+  }
+
+  verificarClienteIniciado(){
+    if(localStorage.getItem('token') == "Client"){
+       return true;
+    }
+    return false;
   }
 
 }

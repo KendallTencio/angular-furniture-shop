@@ -15,6 +15,7 @@ import { ClientViewComponent } from './views/client-view/client-view.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
+import { ReportViewComponent } from './views/report-view/report-view.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterComponent } from './views/register/register.component';
     CeoComponent,
     ClientViewComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReportViewComponent
   ],
   imports: [
     BrowserModule,
