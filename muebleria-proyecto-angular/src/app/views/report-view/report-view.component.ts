@@ -26,6 +26,10 @@ export class ReportViewComponent implements OnInit {
 
   selectedSucursal = "Reporte de la " + this.sucursales[0];
 
+  listProductos = ["Silla grande","Mesa","Juego sala"];
+
+  selectProduct = 0;
+
   listaVentasTotales =      [{"ID" : 253, "Fecha" : "2020-07-30","Sucursal": "Sucursal Cartago", "Productos" : [{"Producto" : "Silla grande", "Cantidad" : 5, "Total" : 5000}, {"Producto" : "Juego sala", "Cantidad" : 1, "Total" : 2000}] },
                          {"ID" : 254,"Fecha" : "2020-06-27","Sucursal": "Sucursal Heredia","Productos" : [{"Producto" : "Mesa", "Cantidad" : 2, "Total" : 6000}, {"Producto" : "Juego sala", "Cantidad" : 2, "Total" : 4000}]},
                          {"ID" : 255,"Fecha" : "2020-07-20","Sucursal": "Sucursal San José", "Productos" : [{"Producto" : "Silla grande", "Cantidad" : 2, "Total" : 2000}, {"Producto" : "Mesa", "Cantidad" : 1, "Total" : 3000}]},
@@ -87,7 +91,8 @@ export class ReportViewComponent implements OnInit {
     this.reporteC = 1;
     this.reporte = 1;
     this.titulo = "Reporte Productos";
-    this.generarProductos();
+    this.generarProductos(this.listProductos[this.selectProduct]);
+    this.selectProduct=0;
   }
   generarVentas(){
     this.listaVentasTotales.forEach(element => {
@@ -107,25 +112,19 @@ export class ReportViewComponent implements OnInit {
     this.listaGenerales.push({"Fecha" : formatDate(new Date(), 'yyyy-MM-dd', 'en'), "Total" : total});
   }
 
-  generarProductos(){
-    var entro;
+  generarProductos(_producto:String){
+    var cantidad = 0;
+    var total = 0;
+    console.log(_producto);
     this.listaVentasTotales.forEach(element => {
       element.Productos.forEach(products => {
-        entro = false;
-        for (let index = 0; index < this.listaProductos.length; index++) {
-          if(products.Producto == this.listaProductos[index].Producto && element.Sucursal == this.listaProductos[index].Sucursal){
-            entro = true;
-            this.listaProductos[index].Cantidad += products.Cantidad;
-            this.listaProductos[index].Total += products.Total;
-            break;
-          }
-        }
-        if(!entro){
-          this.listaProductos.push({"Producto" : products.Producto, "Sucursal" : element.Sucursal, "Cantidad" : products.Cantidad, "Total" : products.Total});
+        if(products.Producto == _producto){
+          cantidad += products.Cantidad;
+          total += products.Total;
         }
       });
-      
     });
+    this.listaProductos.push({"Producto" : _producto, "Cantidad" : cantidad, "Total" : total});
   }
 
   fechaVer(){
@@ -146,6 +145,10 @@ export class ReportViewComponent implements OnInit {
 
   onChangeFecha2(event: any) {
     this.fecha2 = event.target.value;
+  }
+
+  selectChangeHandler3 (event: any) {
+    this.selectProduct = (event.target.value).substring(0,1);
   }
   generarSucursales(_sucursal: String){
     this.listaVentasTotales.forEach(element => {
@@ -169,6 +172,7 @@ export class ReportViewComponent implements OnInit {
   reset(){
     this.selectedSucursal = "Reporte de la " +  this.sucursales[0];
     this.selectedReporte = "Reportes hecho el " + this.ReportesFecha[0];
+    this.selectProduct = 0;
     this.fecha = formatDate(new Date(), 'yyyy-MM-dd', 'en');
     this.fecha2 = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
@@ -177,5 +181,6 @@ export class ReportViewComponent implements OnInit {
     this.reporteC = 0;
     this.reporte = 0;
     this.reset();
+    this.titulo = "Reportes";
   }
 }
