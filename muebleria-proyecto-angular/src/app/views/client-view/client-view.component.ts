@@ -41,7 +41,6 @@ export class ClientViewComponent implements OnInit {
   imageApears = false;
   feedback=false;
   deuda=false;
-  variable=0;
 
   ngOnInit() {
   }
@@ -49,12 +48,14 @@ export class ClientViewComponent implements OnInit {
   agregarProductoAListaPedido(i){
     this.listaDePedido.push(i);
     console.log(this.listaDePedido.length);
+    console.log(i.price);
   }
   obtenerDatos(){
+    let prueba=0;
     this.listaDePedido.forEach(element => {
-      this.variable=this.variable+element.price;
+      prueba+=element.price;
     });
-    return this.variable;
+    return prueba;
   }
 
   onSelectFile(event) {
