@@ -1,4 +1,3 @@
-
 <div class="row " style="margin-top:15%; margin-bottom: 5%;">
     <div class="col-lg-5 col-md-5 col-sm-12">
         <div class="card cuartoColor">
@@ -215,12 +214,11 @@
                         </button>
                             </div>
                             <div class="modal-body">
-                                <p>La expectativa de ganancias definida por el gerente general para el mes {{month+1}} del año {{year}} es: $35000.
+                                <p>{{demandaNacional}}
                                 </p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
-
                             </div>
                         </div>
                     </div>
@@ -278,11 +276,11 @@
             </div>
             <div *ngIf="agregarBackorder" class="card-body">
                 <h4>Seleccionar Pedidos</h4>
-                <div *ngFor= "let pedido of listaPedidos" class="custom-control custom-checkbox">
+                <div *ngFor="let pedido of listaPedidos" class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}}">
                     <label class="custom-control-label" for="{{pedido.nombrePedido}}">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
-                  </div>
-                  <div class="row" style="margin-top: 2%;">
+                </div>
+                <div class="row" style="margin-top: 2%;">
                     <div class="col-12 d-flex justify-content-center">
                         <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#confirmarBackorder">Confirmar</button>
                     </div>
@@ -290,24 +288,24 @@
                 <!-- Modal -->
                 <div class="modal fade" id="confirmarBackorder" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Confirmación del Proceso</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Confirmación del Proceso</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        </div>
-                        <div class="modal-body">
-                            Se han agregado los pedidos seleccionados al Backorder y de igual forma a la Base de Datos
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="agregarBackorder=!agregarBackorder">Cerrar</button>
+                            </div>
+                            <div class="modal-body">
+                                Se han agregado los pedidos seleccionados al Backorder y de igual forma a la Base de Datos
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="agregarBackorder=!agregarBackorder">Cerrar</button>
+                            </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-                </div>
-                
+            </div>
+
         </div>
     </div>
 </div>
