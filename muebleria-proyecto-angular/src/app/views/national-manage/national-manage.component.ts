@@ -1,5 +1,3 @@
-import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-national-manage',
   templateUrl: './national-manage.component.html',
@@ -24,3 +22,4 @@ export class NationalManageComponent implements OnInit {
   }
 
 }
+
