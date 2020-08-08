@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../../models/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ export class HomeComponent implements OnInit {
     "password" : "" 
   }
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, public authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -40,8 +42,8 @@ export class HomeComponent implements OnInit {
         this.client = clients.find( ({ email }) => email === this.user.email );
         if(this.client){
           if(this.client.email == this.user.email && this.client.password == this.user.password){
-            localStorage.setItem("token",this.client.name.toString());
-            this.router.navigate(['/client']);
+            localStorage.setItem("token","Client");
+            this.router.navigate(['/']);
           }else{
             this.errorFlag = !this.errorFlag;
           }
