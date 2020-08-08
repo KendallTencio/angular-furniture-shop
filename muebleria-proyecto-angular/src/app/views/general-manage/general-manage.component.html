@@ -11,9 +11,9 @@
                     <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
                     <a (click)="changeFlag('rangoBono')"><i *ngIf="rangoBono " class="arrow right"></i> Definir Bono Vendedor por Pedido  </a>
                     <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
-                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa');getDemand();"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
-                    <a (click)="observarBono = !observarBono"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
-                    <a (click)="agregarBackorder = !agregarBackorder"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
+                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa')"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
+                    <a (click)="changeFlag('observarBono')"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
+                    <a (click)="changeFlag('agregarBackorder')"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
                 </div>
             </div>
         </div>
@@ -240,6 +240,51 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Modal Pago Liquidacion-->
+                    <div class="modal fade" id="generarPagoLiquidacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Generación del Pago de Liquidación </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label>Nombre Completo del Empleado:  </label>
+                                            <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sucursal en la que laboraba el empleado: </label>
+                                            <input class="form-control" type="text" value="San José">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Puesto del Empleado: </label>
+                                            <input class="form-control" type="text" value="{{empleado.position}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Monto recomendado de liquidación: </label>
+                                            <input class="form-control" type="text" value="$600">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Monto definido de liquidación: </label>
+                                            <input class="form-control" type="number" placeholder="$">
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
