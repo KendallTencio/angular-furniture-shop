@@ -17,6 +17,7 @@ import { FooterComponent } from './views/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
 import { ReportViewComponent } from './views/report-view/report-view.component';
+import { GeneralManageToolsComponent } from './views/general-manage-tools/general-manage-tools.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ReportViewComponent } from './views/report-view/report-view.component';
     ClientViewComponent,
     FooterComponent,
     RegisterComponent,
-    ReportViewComponent
+    ReportViewComponent,
+    GeneralManageToolsComponent
   ],
   imports: [
     BrowserModule,
