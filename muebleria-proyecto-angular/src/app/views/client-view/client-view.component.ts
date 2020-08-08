@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientViewComponent implements OnInit {
 
+//初めまして。私はケンダルです。
+
   //Productos de catálogo mostrado
   productos = [
     {

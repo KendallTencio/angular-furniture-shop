@@ -30,14 +30,14 @@ export class HomeComponent implements OnInit {
     let ceo  = JSON.parse(localStorage.getItem("ceo"));
     if(this.user.email !== "" && this.user.password !== ""){
       if(this.user.email == national.email && this.user.password == national.password){
-          localStorage.setItem("token",this.user.email);
-          this.router.navigate(['/nationalManage']);
+          localStorage.setItem("token","NationalManager");
+          this.router.navigate(['/']);
       } else if (this.user.email == general.email && this.user.password == general.password){
-        localStorage.setItem("token",this.user.email);
-        this.router.navigate(['/generalManage']);
+        localStorage.setItem("token","GeneralManager");
+        this.router.navigate(['/']);
       }else if (this.user.email == ceo.email && this.user.password == ceo.password){
-        localStorage.setItem("token",this.user.email);
-        this.router.navigate(['/ceo']);
+        localStorage.setItem("token","CEO");
+        this.router.navigate(['/']);
       }else{
         this.client = clients.find( ({ email }) => email === this.user.email );
         if(this.client){

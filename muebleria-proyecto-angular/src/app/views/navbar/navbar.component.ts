@@ -24,6 +24,27 @@ export class NavbarComponent implements OnInit {
     return false;
   }
 
+  verificarGerenteNacionalIniciado(){
+    if(localStorage.getItem('token') == "NationalManager"){
+       return true;
+    }
+    return false;
+  }
+
+  verificarGerenteGeneralIniciado(){
+    if(localStorage.getItem('token') == "GeneralManager"){
+       return true;
+    }
+    return false;
+  }
+
+  verificarCEOIniciado(){
+    if(localStorage.getItem('token') == "CEO"){
+       return true;
+    }
+    return false;
+  }
+
   
 
 }
