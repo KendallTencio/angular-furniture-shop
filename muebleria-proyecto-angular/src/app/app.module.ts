@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
 import { ReportViewComponent } from './views/report-view/report-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
