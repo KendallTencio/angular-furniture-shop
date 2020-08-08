@@ -1,10 +1,23 @@
-<div class="row"style="margin-top: 12%;">
-    <div class="bm-col col-md-4"><div class="wrapper" style="padding: 10px; text-align: center;"><hr data-module="breaker" class="bm-breaker-module-medium" data-structure="{}" data-id="5f265c513a1b7"></div></div>
-    <div class="bm-col col-md-4"><div class="wrapper" style="padding: 5px;"><h1 data-module="title" data-di="titleBold" style="font-size: 36px; text-align: center; position: relative;" id="TIE_1" class="" spellcheck="false" data-structure="{&quot;value&quot;:&quot;<strong>Generar Reportes<\/strong>&quot;,&quot;type&quot;:&quot;h1&quot;}" data-id="5f265c513a1c8"><strong>Catálogo</strong></h1></div></div>
-    <div class="bm-col col-md-4"><div class="wrapper" style="padding: 10px; text-align: center;"><hr data-module="breaker" class="bm-breaker-module-medium" data-structure="{}" data-id="5f265c513a1d3"></div></div>
-</div> 
+<div class="row" style="margin-top: 12%; ">
+    <div class="bm-col col-md-4">
+        <div class="wrapper" style="padding: 10px; text-align: center;">
+            <hr data-module="breaker" class="bm-breaker-module-medium" data-structure="{}" data-id="5f265c513a1b7">
+        </div>
+    </div>
+    <div class="bm-col col-md-4">
+        <div class="wrapper" style="padding: 5px;">
+            <h1 data-module="title" data-di="titleBold" style="font-size: 36px; text-align: center; position: relative;" id="TIE_1" class="" spellcheck="false" data-structure="{&quot;value&quot;:&quot;<strong>Generar Reportes<\/strong>&quot;,&quot;type&quot;:&quot;h1&quot;}"
+                data-id="5f265c513a1c8"><strong>Catálogo</strong></h1>
+        </div>
+    </div>
+    <div class="bm-col col-md-4">
+        <div class="wrapper" style="padding: 10px; text-align: center;">
+            <hr data-module="breaker" class="bm-breaker-module-medium" data-structure="{}" data-id="5f265c513a1d3">
+        </div>
+    </div>
+</div>
 
-<div class="container" id="myGroup" style="margin-top: 9%;">
+<div class="container" id="myGroup" style="margin-top: 9%; margin-bottom: 35%;">
 
     <h3>Catálogo</h3>
     <p>
@@ -14,51 +27,51 @@
         <button type="button" class="btn btn-dark terceColor mr-1" data-toggle="modal" data-target="#staticBackdrop">
     Pedir Mueble
   </button>
-  <button type="button" class="btn btn-dark terceColor" data-toggle="collapse" href="#finalCountdown" aria-controls="finalCountdown">
+        <button type="button" class="btn btn-dark terceColor" data-toggle="collapse" href="#finalCountdown" aria-controls="finalCountdown">
     Revisión Final del Pedido
 </button>
-</p>
-<div class="collapse" id="finalCountdown" data-parent="#myGroup">
-    <div class="row" >
-        <div class="col-12">
-            <div style="margin-top: 2%;">
-                <div class="card w-75">
-                    <div class="card-body">
-                        <h5 class="card-title">A continuación se le presentarán las opciones con las cuales puede realizar su pago y información sobre su deuda actual.</h5>
-                        <p class="card-text"> La deuda actual que posee con la Mueblería KSAS es de $ {{obtenerDatos()}}, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.</p>
-                        <div class="row">
-                            <div class="card col-3 p-1" *ngFor="let producto of listaDePedido; let i = index">
-                                <div class="card">
-                                    <div class="d-flex justify-content-center">
-                                        <img src={{producto.imagen}} class="card-img-top centered" style="width:120px;height:120px;border-radius: 60px;">
-                                    </div>
-                                    <div class="card-header">
-                                        Producto: {{producto.title}} | ID: {{producto.id}}
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group row">
-                                            <div class="col-12">
-                                                Material: {{producto.material}}
-                                            </div>
+    </p>
+    <div class="collapse" id="finalCountdown" data-parent="#myGroup">
+        <div class="row">
+            <div class="col-12">
+                <div style="margin-top: 2%;">
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">A continuación se le presentarán las opciones con las cuales puede realizar su pago y información sobre su deuda actual.</h5>
+                            <p class="card-text"> La deuda actual que posee con la Mueblería KSAS es de $ {{obtenerDatos()}}, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.</p>
+                            <div class="row">
+                                <div class="card col-3 p-1" *ngFor="let producto of listaDePedido; let i = index">
+                                    <div class="card">
+                                        <div class="d-flex justify-content-center">
+                                            <img src={{producto.imagen}} class="card-img-top centered" style="width:120px;height:120px;border-radius: 60px;">
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-12">
-                                                Material: ${{producto.price}}
+                                        <div class="card-header">
+                                            Producto: {{producto.title}} | ID: {{producto.id}}
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <div class="col-12">
+                                                    Material: {{producto.material}}
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-12">
+                                                    Material: ${{producto.price}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#pagoOnline">Realizar Pago Online</a>
+                            <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#organizarPago" style="margin-left: 2%;">Organizar Pago En Persona</a>
                         </div>
-                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#pagoOnline">Realizar Pago Online</a>
-                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#organizarPago" style="margin-left: 2%;">Organizar Pago En Persona</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    
+
     <div class="collapse" id="inventProdu" data-parent="#myGroup">
         <div class="row">
             <div class="card col-3 p-1" *ngFor="let producto of productos; let i = index">
@@ -151,111 +164,6 @@
 
     <span layout="row"><hr flex/></span>
 
-    <h3>Pagos</h3>
-    <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#pagoOnline" role="button" aria-expanded="false" aria-controls="pagoOnline" style="background-color: #091540;border-color: #091540;">
-    Pago En Línea
-  </a>
-    </p>
-    <div class="collapse" id="pagoOnline2" data-parent="#myGroup">
-        <div class="card" style="width: 600px;">
-            <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label for="nombreDueno">Nombre de dueño</label>
-                        <input type="text" class="form-control" id="nombreDueno">
-                    </div>
-                    <div class="form-group">
-                        <label for="numeroTarjeta">Número de tarjeta</label>
-                        <input type="text" class="form-control" id="numeroTarjeta" placeholder="XXXX-XXXX-XXXX-XXXX">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" id="inputCV" placeholder="CV">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <input type="number" class="form-control" id="Mes" placeholder="MM">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <input type="number" class="form-control" id="Anio" placeholder="AA">
-                        </div>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCompletoRadio" value="option1" checked>
-                        <label class="form-check-label" for="pagoCompletoRadio">
-                      Pago completo
-                    </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCuotasRadio" value="option2">
-                        <label class="form-check-label" for="pagoCuotasRadio">
-                      Pago cuotas
-                    </label>
-                        <select id="inputState" class="form-control">
-                        <option selected>Plazo de cuotas</option>
-                        <option>3 meses</option>
-                        <option>6 meses</option>
-                      </select>
-                    </div>
-
-                    <span layout="row"><hr flex/></span>
-
-                    <button type="submit" class="btn btn-primary">Pagar</button>
-
-                </form>
-            </div>
-        </div>
-        <span layout="row"><hr flex/></span>
-    </div>
-
-    <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#pagoPersona" role="button" aria-expanded="false" aria-controls="pagoPersona" style="background-color: #091540;border-color: #091540;">
-      Organizar pago en persona
-    </a>
-    </p>
-    <div class="collapse" id="pagoPersona" data-parent="#myGroup">
-        <div class="card" style="width: 600px;">
-            <div class="card-body">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-
-                        <div class="form-group col-md-4">
-                            <label for="inputSucursal">Seleccionar sucursal</label>
-                            <select id="inputSucursal" class="form-control">
-                      <option selected>Sucursal</option>
-                      <option>...</option>
-                    </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputEmpleado">Seleccionar empleado</label>
-                            <select id="inputEmpleado" class="form-control">
-                      <option selected>Empleado</option>
-                      <option>...</option>
-                    </select>
-                        </div>
-
-                        <div class="form-group col-md-8">
-                            <input type="date" class="form-control" id="inputFecha" placeholder="Ingrese una fecha">
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="btn btn-primary">Pagar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <span layout="row"><hr flex/></span>
-
     <h3>Observar pedido</h3>
     <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#pedidoDelivery" role="button" aria-expanded="false" aria-controls="pagoOnline" style="background-color: #091540;border-color: #091540;">
@@ -275,7 +183,7 @@
         </div>
         <span layout="row"><hr flex/></span>
     </div>
-
+    <span layout="row"><hr flex/></span>
     <h3>Evaluación</h3>
     <div class="row">
         <div class="col-12">
@@ -304,7 +212,7 @@
 
 </div>
 
-    
+
 
 <div class="row">
     <!-- Modal Encuesta Servicio-->
@@ -375,7 +283,7 @@
                                 <input type="number" class="form-control" id="Anio2" placeholder="AA">
                             </div>
                         </div>
-    
+
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCompletoRadio2" value="option1" checked>
                             <label class="form-check-label" for="pagoCompletoRadio">
@@ -402,8 +310,8 @@
             </div>
         </div>
     </div>
-     <!-- Modal Pago En Persona-->
-     <div class="modal fade" id="organizarPago" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal Pago En Persona-->
+    <div class="modal fade" id="organizarPago" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -429,11 +337,11 @@
                                     <option>...</option>
                                 </select>
                             </div>
-    
+
                             <div class="form-group col-md-8">
                                 <input type="date" class="form-control" id="inputFecha2" placeholder="Ingrese una fecha">
                             </div>
-    
+
                         </div>
                     </form>
                 </div>
@@ -509,40 +417,40 @@
 </div>
 <div class="modal fade" id="staticBackdrop10" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Pedir delivery</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Pedir delivery</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputName">Nombre</label>
-                        <input type="text" id="inputName" class="form-control" placeholder="Nombre apellidos">
-                      </div>
-                      <div class="col">
-                        <label for="inputCel">Teléfono</label>
-                        <input type="text" id="inputCel" class="form-control" placeholder="88888888">
-                      </div>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputName">Nombre</label>
+                            <input type="text" id="inputName" class="form-control" placeholder="Nombre apellidos">
+                        </div>
+                        <div class="col">
+                            <label for="inputCel">Teléfono</label>
+                            <input type="text" id="inputCel" class="form-control" placeholder="88888888">
+                        </div>
 
-                </div>
-                <div class="form-group">
-                  <label for="inputAddress">Dirección de entrega</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Dirección">
-                </div>
-                <div class="mb-3">
-                    <label for="validationTextarea">Detalles a tomar en cuenta</label>
-                    <textarea class="form-control" id="validationTextarea" placeholder="Escriba consideraciones que se deban tomar en cuenta" required></textarea>
-                  </div>
-              </form>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Dirección de entrega</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Dirección">
+                    </div>
+                    <div class="mb-3">
+                        <label for="validationTextarea">Detalles a tomar en cuenta</label>
+                        <textarea class="form-control" id="validationTextarea" placeholder="Escriba consideraciones que se deban tomar en cuenta" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Pedir</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Pedir</button>
-        </div>
-      </div>
     </div>
 </div>
