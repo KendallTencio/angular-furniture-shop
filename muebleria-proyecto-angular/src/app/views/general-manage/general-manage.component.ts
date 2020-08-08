@@ -62,7 +62,6 @@ export class GeneralManageComponent implements OnInit {
 
   getDemand(){
     this.demandaNacional= localStorage.getItem("demandaNacional");
-    console.log(this.demandaNacional,"AQUI ESTOU XDDD");
   }
 
   changeFlag(flag:string){
