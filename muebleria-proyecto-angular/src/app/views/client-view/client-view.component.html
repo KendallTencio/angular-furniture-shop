@@ -11,10 +11,54 @@
         <a class="btn btn-primary mr-1" data-toggle="collapse" href="#inventProdu" role="button" aria-expanded="false" aria-controls="inventProdu" style="background-color: #091540;border-color: #091540;">
     Ver productos
   </a>
-        <button type="button" class="btn btn-dark terceColor" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="btn btn-dark terceColor mr-1" data-toggle="modal" data-target="#staticBackdrop">
     Pedir Mueble
   </button>
-    </p>
+  <button type="button" class="btn btn-dark terceColor" data-toggle="collapse" href="#finalCountdown" aria-controls="finalCountdown">
+    Revisión Final del Pedido
+</button>
+</p>
+<div class="collapse" id="finalCountdown" data-parent="#myGroup">
+    <div class="row" >
+        <div class="col-12">
+            <div style="margin-top: 2%;" data-parent="#myGroup">
+                <div class="card w-75">
+                    <div class="card-body">
+                        <h5 class="card-title">A continuación se le presentarán las opciones con las cuales puede realizar su pago y información sobre su deuda actual.</h5>
+                        <p class="card-text"> La deuda actual que posee con la Mueblería KSAS es de $ {{obtenerDatos()}}, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.</p>
+                        <div class="row">
+                            <div class="card col-3 p-1" *ngFor="let producto of listaDePedido; let i = index">
+                                <div class="card">
+                                    <div class="d-flex justify-content-center">
+                                        <img src={{producto.imagen}} class="card-img-top centered" style="width:120px;height:120px;border-radius: 60px;">
+                                    </div>
+                                    <div class="card-header">
+                                        Producto: {{producto.title}} | ID: {{producto.id}}
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                Material: {{producto.material}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                Material: ${{producto.price}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#pagoOnline">Realizar Pago Online</a>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#organizarPago" style="margin-left: 2%;">Organizar Pago En Persona</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
     <div class="collapse" id="inventProdu" data-parent="#myGroup">
         <div class="row">
             <div class="card col-3 p-1" *ngFor="let producto of productos; let i = index">
@@ -233,23 +277,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn btn-dark terceColor" data-toggle="modal" (click)="deuda=!deuda" style="margin-top: 1%;">
-                Revisión Final del Pedido
-            </button>
-            <div *ngIf="deuda" style="margin-top: 2%;">
-                <div class="card w-75">
-                    <div class="card-body">
-                        <h5 class="card-title">A continuación se le presentarán las opciones con las cuales puede realizar su pago y información sobre su deuda actual.</h5>
-                        <p class="card-text"> La deuda actual que posee con la Mueblería KSAS es de $100, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.                        </p>
-                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#pagoOnline">Realizar Pago Online</a>
-                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#organizarPago" style="margin-left: 2%;">Organizar Pago En Persona</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
 <div class="row">
     <!-- Modal Encuesta Servicio-->
@@ -454,9 +482,6 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#revisarDeuda" style="margin-top: 2%;">
-            Revisar Deuda
-        </button>
         <!-- Modal Revisar Deuda-->
         <div class="modal fade" id="revisarDeuda" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -519,4 +544,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
