@@ -1,0 +1,14 @@
+div hr[data-module=breaker], div hr[data-module=breaker].bm-breaker-module-medium, div hr[data-module=breaker].bm-breaker-module-large {
+    border-top-color: #3f3f3f;
+}
+hr[data-module=breaker].bm-breaker-module-medium {
+    border-top: 3px solid #eee;
+}
+hr[data-module=breaker] {
+    border: 0px;
+    border-top: 1px solid #eee;
+}
+[data-module=breaker] {
+    display: inline-block;
+    width: 100%;
+}
