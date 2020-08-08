@@ -20,6 +20,7 @@ import { ReportViewComponent } from './views/report-view/report-view.component';
 import { GeneralManageToolsComponent } from './views/general-manage-tools/general-manage-tools.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

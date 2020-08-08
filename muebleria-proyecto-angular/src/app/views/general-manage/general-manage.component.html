@@ -219,92 +219,94 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
+                                <<<<<<< HEAD </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <!-- Modal Pago Liquidacion-->
-                <div class="modal fade" id="generarPagoLiquidacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Generación del Pago de Liquidación </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div>
+                    <!-- Modal Pago Liquidacion-->
+                    <div class="modal fade" id="generarPagoLiquidacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Generación del Pago de Liquidación </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Nombre Completo del Empleado:  </label>
-                                        <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Sucursal en la que laboraba el empleado: </label>
-                                        <input class="form-control" type="text" value="San José">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Puesto del Empleado: </label>
-                                        <input class="form-control" type="text" value="{{empleado.position}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Monto recomendado de liquidación: </label>
-                                        <input class="form-control" type="text" value="$600">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Monto definido de liquidación: </label>
-                                        <input class="form-control" type="number" placeholder="$">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button> ======= >>>>>>> 0cc0c87d78c0c5a4a577524f9ee05b155e9ef682
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="observarBono" class="card-body">
-                <ul *ngFor="let vendedor of listaVendedor" class="list-group">
-                    <li class="list-group-item">{{vendedor.name}} y su bono por pedido realizado es: ${{vendedor.bonus}} </li>
-                </ul>
-            </div>
-            <div *ngIf="agregarBackorder" class="card-body">
-                <h4>Seleccionar Pedidos</h4>
-                <div *ngFor="let pedido of listaPedidos" class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}}">
-                    <label class="custom-control-label" for="{{pedido.nombrePedido}}">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
-                </div>
-                <div class="row" style="margin-top: 2%;">
-                    <div class="col-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#confirmarBackorder">Confirmar</button>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="confirmarBackorder" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Confirmación del Proceso</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                            </div>
-                            <div class="modal-body">
-                                Se han agregado los pedidos seleccionados al Backorder y de igual forma a la Base de Datos
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="agregarBackorder=!agregarBackorder">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label>Nombre Completo del Empleado:  </label>
+                                            <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sucursal en la que laboraba el empleado: </label>
+                                            <input class="form-control" type="text" value="San José">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Puesto del Empleado: </label>
+                                            <input class="form-control" type="text" value="{{empleado.position}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Monto recomendado de liquidación: </label>
+                                            <input class="form-control" type="text" value="$600">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Monto definido de liquidación: </label>
+                                            <input class="form-control" type="number" placeholder="$">
+                                        </div>
 
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button> ======= >>>>>>> 0cc0c87d78c0c5a4a577524f9ee05b155e9ef682
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="observarBono" class="card-body">
+                    <ul *ngFor="let vendedor of listaVendedor" class="list-group">
+                        <li class="list-group-item">{{vendedor.name}} y su bono por pedido realizado es: ${{vendedor.bonus}} </li>
+                    </ul>
+                </div>
+                <div *ngIf="agregarBackorder" class="card-body">
+                    <h4>Seleccionar Pedidos</h4>
+                    <div *ngFor="let pedido of listaPedidos" class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}}">
+                        <label class="custom-control-label" for="{{pedido.nombrePedido}}">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
+                    </div>
+                    <div class="row" style="margin-top: 2%;">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-success btn-lg text-center" data-toggle="modal" data-target="#confirmarBackorder">Confirmar</button>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="confirmarBackorder" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Confirmación del Proceso</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                                </div>
+                                <div class="modal-body">
+                                    Se han agregado los pedidos seleccionados al Backorder y de igual forma a la Base de Datos
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="agregarBackorder=!agregarBackorder">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 
-<span layout="row"><hr flex/></span>
+    <span layout="row"><hr flex/></span>
