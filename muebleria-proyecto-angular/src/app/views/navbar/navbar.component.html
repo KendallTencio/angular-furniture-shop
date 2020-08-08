@@ -13,7 +13,7 @@
         <form class="form-inline my-2 my-lg-0">
             <label *ngIf="!authService.loggedIn()" class="nav-link text-light mr-2">¿Aún no tienes cuenta?</label>
             <button *ngIf="!authService.loggedIn()" class="btn btn-outline-light my-2 my-sm-0" type="button" routerLink="/register">Registrarse</button>
-            <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0 text-light" type="submit" (click)="authService.logoutUser()">Cerrar Sesión</button>
+            <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0 text-light" type="submit" (click)="authService.logoutUser(); ">Cerrar Sesión</button>
         </form>
     </div>
 </nav>

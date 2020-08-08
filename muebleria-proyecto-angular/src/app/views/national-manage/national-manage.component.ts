@@ -20,6 +20,7 @@ export class NationalManageComponent implements OnInit {
 
   establecerDemandaMensual(){
     NationalManageComponent.demandaMensual = "La expectativa de ganancias definida por el gerente nacional para el mes "+this.mesDemanda+" del año "+this.anioDemanda+" es:$"+this.montoDemanda;
+    localStorage.setItem("demandaNacional", NationalManageComponent.demandaMensual.toString());
     console.log(NationalManageComponent.demandaMensual);
   }
 

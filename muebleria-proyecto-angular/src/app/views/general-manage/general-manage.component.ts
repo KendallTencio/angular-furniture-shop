@@ -117,12 +117,17 @@ nombrePromoInput:string;
 muebleTipoInput:string;
 porceDescInput:string;
 duracionInput:string;
-
+demandaNacional : string;
 
   constructor() { }
 
   ngOnInit() {
     
+  }
+
+  getDemand(){
+    this.demandaNacional= localStorage.getItem("demandaNacional");
+    console.log(this.demandaNacional,"AQUI ESTOU XDDD");
   }
 
   changeFlag(flag:string){
