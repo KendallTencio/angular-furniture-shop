@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit {
         this.client = clients.find( ({ email }) => email === this.user.email );
         if(this.client){
           if(this.client.email == this.user.email && this.client.password == this.user.password){
-            localStorage.setItem("token",this.client.name.toString());
-            this.router.navigate(['/client']);
+            localStorage.setItem("token","Client");
+            this.router.navigate(['/']);
           }else{
             this.errorFlag = !this.errorFlag;
           }
