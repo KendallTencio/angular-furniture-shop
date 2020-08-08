@@ -9,14 +9,11 @@ export class AuthService {
   constructor(private router: Router) { }
 
   loggedIn(){
-    
     return !!localStorage.getItem('token')
-    
   }
 
   logoutUser(){
-    localStorage.removeItem('token')
-    
+    localStorage.removeItem('token') 
     this.router.navigate([''])
   }
 

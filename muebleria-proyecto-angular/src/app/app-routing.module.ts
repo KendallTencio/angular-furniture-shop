@@ -6,12 +6,17 @@ import { GeneralManageComponent } from './views/general-manage/general-manage.co
 import { CeoComponent } from './views/ceo/ceo.component';
 import { ClientViewComponent } from './views/client-view/client-view.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ReportViewComponent } from './views/report-view/report-view.component';
 
 
 const routes: Routes = [
   {
     path: 'nationalManage',
     component : NationalManageComponent
+  },
+  {
+    path: 'report',
+    component : ReportViewComponent
   },
   {
     path: 'generalManage',
