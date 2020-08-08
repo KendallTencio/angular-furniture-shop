@@ -1,20 +1,35 @@
-<nav class="navbar navbar-expand-lg  navbarC terceColor text-light">
+<nav class="navbar navbar-expand-lg  navbarC terceColor text-light fixed-top">
+    <img src="assets/KSASLogo.png" style="width:50px;height:50px" alt="" class="img-fluid rounded-circle z-depth-0">
     <a class="navbar-brand pl-5">Muebleria</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
+                       <li class="nav-item ">
                 <a class="nav-link text-light" routerLink="/">Inicio </a>
-            </li>
+            </li> 
             <li class="nav-item ">
                 <a class="nav-link text-light" *ngIf="verificarClienteIniciado()" routerLink="/client">Catálogo </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" *ngIf="verificarGerenteNacionalIniciado()" routerLink="/report">Reportes </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" *ngIf="verificarGerenteNacionalIniciado()" routerLink="/nationalManage">Expectativa Mensual</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" *ngIf="verificarGerenteGeneralIniciado()" routerLink="/generalManage">Gestión</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" *ngIf="verificarCEOIniciado()" routerLink="/ceo">Gestión</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <label *ngIf="verificarClienteIniciado()" class="nav-link text-light mr-2">¡Bienvenido cliente!</label>
+            <label *ngIf="verificarClienteIniciado()" class="nav-link text-light mr-2">¡Bienvenido Cliente!</label>
+            <label *ngIf="verificarGerenteNacionalIniciado()" class="nav-link text-light mr-2">¡Bienvenido Gerente Nacional!</label>
+            <label *ngIf="verificarGerenteGeneralIniciado()" class="nav-link text-light mr-2">¡Bienvenido Gerente General!</label>
+            <label *ngIf="verificarCEOIniciado()" class="nav-link text-light mr-2">¡Bienvenido CEO!</label>
             <label *ngIf="!authService.loggedIn()" class="nav-link text-light mr-2">¿Aún no tienes cuenta?</label>
             <button *ngIf="!authService.loggedIn()" class="btn btn-outline-light my-2 my-sm-0" type="button" routerLink="/register">Registrarse</button>
             <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0 text-light" type="submit" (click)="authService.logoutUser(); ">Cerrar Sesión</button>
