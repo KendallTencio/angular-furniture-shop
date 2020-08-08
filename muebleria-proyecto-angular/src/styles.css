@@ -9,5 +9,24 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.colorPrincipal {
+    background-color: #bcb8b8;
+    color: black;
+}
+
+.colorSecundario {
+    background-color: #666565;
+}
+
+.terceColor {
+    background-color: #091540;
+}
+
+.cuartoColor {
+    background-color: #3772ff;
+}
+
+.titulos {
+    color: #091540;
+}

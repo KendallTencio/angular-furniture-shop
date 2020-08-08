@@ -1,0 +1,62 @@
+<span layout="row"><hr flex/></span>
+<span layout="row"><hr flex/></span>
+
+<h3>Expectativa Demanda Mensual</h3>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#expectativaMen" role="button" aria-expanded="false" aria-controls="expectativaMen" style="background-color: #091540;border-color: #091540;">
+    Establecer expectativa
+  </a>
+</p>
+<div class="collapse" id="expectativaMen"> 
+    <div class="card" style="width: 600px;">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <select id="inputSucursal" class="form-control" [(ngModel)]="duracionInput" [ngModelOptions]="{standalone: true}">
+                        <option selected>Sucursal</option>
+                        <option>San José</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="montoEspec">Monto</label>
+                  <input type="text" class="form-control" id="montoEspec" placeholder="Ingrese monto" [(ngModel)]="montoDemanda" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                  <div class="form-check form-check-inline">
+                      
+                    <select id="inputMes" class="form-control" [(ngModel)]="mesDemanda" [ngModelOptions]="{standalone: true}">
+                        <option selected>Mes</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                      </select>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <select id="inputAnio" class="form-control" [(ngModel)]="anioDemanda" [ngModelOptions]="{standalone: true}">
+                        <option selected>Año</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                      </select>
+                  </div>
+                  
+                  <span layout="row"><hr flex/></span>
+                  
+                  
+                  <button type="submit" class="btn btn-primary" (click)="establecerDemandaMensual()">Fijar</button>
+                
+              </form>
+        </div>
+      </div>
+      <span layout="row"><hr flex/></span>
+</div>
