@@ -43,7 +43,6 @@ export class ClientViewComponent implements OnInit {
   }
 
   agregarProductoAListaPedido(i){
-    console.log(this.listaDePedido.length);
     this.listaDePedido.push(i);
     console.log(this.listaDePedido.length);
   }
