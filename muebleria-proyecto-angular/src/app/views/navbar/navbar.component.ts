@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   constructor(public authService : AuthService) { }
 
   ngOnInit() {
+    
   }
 
   verificarClienteIniciado(){
@@ -22,5 +23,7 @@ export class NavbarComponent implements OnInit {
     }
     return false;
   }
+
+  
 
 }

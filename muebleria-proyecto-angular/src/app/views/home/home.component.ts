@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../../models/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ export class HomeComponent implements OnInit {
     "password" : "" 
   }
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, public authService: AuthService) { }
 
   ngOnInit() {
   }
