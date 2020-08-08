@@ -31,6 +31,27 @@
     transform: scale(1.1);
 }
 
+.image-circle {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 433px;
+    height: 443px;
+}
+
+.image-circle img {
+    max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: auto;
+    transform: scale(1);
+}
+
+.image-circle:hover img {
+    transform: scale(1.1);
+}
+
 @media (max-width: 1000px) {
     .image-box {
         display: none;
