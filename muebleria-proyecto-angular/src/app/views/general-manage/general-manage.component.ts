@@ -17,6 +17,7 @@ export class GeneralManageComponent implements OnInit {
   despedir = false;
   contratar = false;
   rango = false;
+  rangoBono = false;
   modificarSalario = false;
   observarBono= false;
   expectativa = false;
@@ -73,6 +74,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if( flag === "empleados"){
@@ -82,6 +84,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     } else if (flag ==="salarios"){
@@ -91,6 +94,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="despedir"){
@@ -100,6 +104,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = !this.despedir;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="contratar"){
@@ -109,6 +114,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = !this.contratar;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="rango"){
@@ -118,6 +124,18 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = !this.rango;
+      this.rangoBono = false;
+      this.modificarSalario = false;
+      this.expectativa = false;
+    }
+    else if (flag ==="rangoBono"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.rangoBono = !this.rangoBono;
       this.modificarSalario = false;
       this.expectativa = false;
     }else if (flag ==="modificarSalario"){
@@ -127,6 +145,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = !this.modificarSalario;
       this.expectativa = false;
     }else{
@@ -136,6 +155,7 @@ export class GeneralManageComponent implements OnInit {
       this.despedir = false;
       this.contratar = false;
       this.rango = false;
+      this.rangoBono = false;
       this.modificarSalario = false;
       this.expectativa =!this.expectativa ;
     }

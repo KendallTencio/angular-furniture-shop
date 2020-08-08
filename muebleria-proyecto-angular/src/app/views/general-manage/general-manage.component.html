@@ -9,6 +9,7 @@
                     <a (click)="changeFlag('contratar')"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
                     <a (click)="changeFlag('salarios')"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
                     <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
+                    <a (click)="changeFlag('rangoBono')"><i *ngIf="rangoBono " class="arrow right"></i> Definir Bono Vendedor por Pedido  </a>
                     <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
                     <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa');getDemand();"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
                     <a (click)="observarBono = !observarBono"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
@@ -149,6 +150,27 @@
                     <div class="row ">
                         <div class="col-12 d-flex justify-content-center ">
                             <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="rango=!rango ">Definir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf="rangoBono " class="card-body ">
+                <form>
+                    <h4 class="text-center pb-5 titulos ">Definir Bono de Vendedor por pedido</h4>
+                    <div class="form-group ">
+                        <label for="validationCustom04 ">Empleados</label>
+                        <select name="state " class="custom-select " id="validationCustom04 " required>
+                            <option selected disabled value=" ">Escoger...</option>
+                            <option *ngFor="let empleado of listaEmpleados;">{{empleado.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleFormControlTextarea1 ">Bono por pedido</label>
+                        <input class="form-control " type="number ">
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 d-flex justify-content-center ">
+                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="rangoBono=!rangoBono ">Definir</button>
                         </div>
                     </div>
                 </form>
