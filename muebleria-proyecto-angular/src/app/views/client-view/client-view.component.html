@@ -99,7 +99,7 @@
     Pago En Línea
   </a>
     </p>
-    <div class="collapse" id="pagoOnline" data-parent="#myGroup">
+    <div class="collapse" id="pagoOnline2" data-parent="#myGroup">
         <div class="card" style="width: 600px;">
             <div class="card-body">
                 <form>
@@ -194,57 +194,183 @@
             </div>
         </div>
     </div>
-
-</div>
-
-<div class="row">
-    <div class="col-12">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#revisarDeuda" style="margin-top: 2%;">
-            Revisar Deuda
-        </button>
-        <!-- Modal Revisar Deuda-->
-        <div class="modal fade" id="revisarDeuda" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Revisión de Deuda Actual</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+    <h3>Evaluación</h3>
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-dark terceColor" data-toggle="modal" (click)="feedback=!feedback">
+                Feedback Entrega del Pedido
+            </button>
+            <div *ngIf="feedback" style="margin-top: 2%;">
+                <div class="card w-75">
+                    <div class="card-body">
+                        <h5 class="card-title">Se encuentra conforme con su pedido?</h5>
+                        <p class="card-text">Entonces, seleccione la siguiente opción para llenar una encuesta sobre el servicio.</p>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#encuestaPedido">Aceptar</a>
                     </div>
-                    <div class="modal-body">
-                        La deuda actual que posee con la Mueblería KSAS es de $100, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.
+                </div>
+
+                <div class="card w-75" style="margin-top: 1%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Se encuentra disconforme con su pedido?</h5>
+                        <p class="card-text">Entonces, seleccione la siguiente opción para indicarnos recomendaciones y poder mejorar el servicio para la próxima compra!</p>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#buzonQuejas">Aceptar</a>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Organizar Pago en Persona</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Realizar Pago Online</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-dark terceColor" data-toggle="modal" (click)="deuda=!deuda" style="margin-top: 1%;">
+                Revisión Final del Pedido
+            </button>
+            <div *ngIf="deuda" style="margin-top: 2%;">
+                <div class="card w-75">
+                    <div class="card-body">
+                        <h5 class="card-title">A continuación se le presentarán las opciones con las cuales puede realizar su pago y información sobre su deuda actual.</h5>
+                        <p class="card-text"> La deuda actual que posee con la Mueblería KSAS es de $100, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.                        </p>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#pagoOnline">Realizar Pago Online</a>
+                        <a href="#" class="btn btn-dark terceColor" data-toggle="modal" data-target="#organizarPago" style="margin-left: 2%;">Organizar Pago En Persona</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="row">
-    <div class="col-12">
-        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="feedback=!feedback" style="margin-top: 2%;">
-            Feedback Entrega del Pedido
-        </button>
-        <div *ngIf="feedback" style="margin-top: 2%;">
-            <div class="card w-75">
-                <div class="card-body">
-                    <h5 class="card-title">Se encuentra conforme con su pedido?</h5>
-                    <p class="card-text">Entonces, seleccione la siguiente opción para llenar una encuesta sobre el servicio.</p>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#encuestaPedido">Aceptar</a>
+    <!-- Modal Encuesta Servicio-->
+    <div class="modal fade" id="encuestaPedido" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Encuesta sobre el Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">En que estado fue entregado el pedido hasta su hogar?</label>
+                            <input type="email" class="form-control" id="FormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Cómo describiría la actitud de los repartidores?</label>
+                            <input type="email" class="form-control" id="FormControlInput2">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">El mueble cumplió con sus expectativas?</label>
+                            <input type="email" class="form-control" id="FormControlInput3">
+                        </div>
+                        <div class="form-group">
+                            <label for="FormControlTextarea1">Indiquenos que recomendaciones daría para una posterior entrega! Gracias por su compra!!</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Enviar Encuesta</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
                 </div>
             </div>
-
-            <div class="card w-75">
-                <div class="card-body">
-                    <h5 class="card-title">Se encuentra disconforme con su pedido?</h5>
-                    <p class="card-text">Entonces, seleccione la siguiente opción para indicarnos recomendaciones y poder mejorar el servicio para la próxima compra!</p>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#buzonQuejas">Aceptar</a>
+        </div>
+    </div>
+    <!-- Modal Pago Online-->
+    <div class="modal fade" id="pagoOnline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Realizar Pago Online</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombreDueno">Nombre de dueño</label>
+                            <input type="text" class="form-control" id="nombreDueno2">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroTarjeta">Número de tarjeta</label>
+                            <input type="text" class="form-control" id="numeroTarjeta2" placeholder="XXXX-XXXX-XXXX-XXXX">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputCV2" placeholder="CV">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input type="number" class="form-control" id="Mes2" placeholder="MM">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input type="number" class="form-control" id="Anio2" placeholder="AA">
+                            </div>
+                        </div>
+    
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCompletoRadio2" value="option1" checked>
+                            <label class="form-check-label" for="pagoCompletoRadio">
+                          Pago completo
+                        </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="radioPagoEnLinea" id="pagoCuotasRadio2" value="option2">
+                            <label class="form-check-label" for="pagoCuotasRadio">
+                          Pago cuotas
+                        </label>
+                            <select id="inputState2" class="form-control">
+                            <option selected>Plazo de cuotas</option>
+                            <option>3 meses</option>
+                            <option>6 meses</option>
+                          </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Realizar Pago</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Modal Pago En Persona-->
+     <div class="modal fade" id="organizarPago" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Organizar Pago en Persona</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputSucursal">Seleccionar sucursal</label>
+                                <select id="inputSucursa2" class="form-control">
+                                    <option selected>Sucursal</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-left: 2%;">
+                                <label for="inputEmpleado">Seleccionar empleado</label>
+                                <select id="inputEmpleado2" class="form-control">
+                                    <option selected>Empleado</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+    
+                            <div class="form-group col-md-8">
+                                <input type="date" class="form-control" id="inputFecha2" placeholder="Ingrese una fecha">
+                            </div>
+    
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Definir Pago</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
                 </div>
             </div>
         </div>
@@ -307,6 +433,34 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Enviar Queja</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#revisarDeuda" style="margin-top: 2%;">
+            Revisar Deuda
+        </button>
+        <!-- Modal Revisar Deuda-->
+        <div class="modal fade" id="revisarDeuda" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Revisión de Deuda Actual</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                    </div>
+                    <div class="modal-body">
+                        La deuda actual que posee con la Mueblería KSAS es de $100, se le recuerda que puede tanto organizar un pago en persona, realizar un pago online o regresar posteriormente para hacer alguna de las 2 opciones.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Organizar Pago en Persona</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Realizar Pago Online</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar Al Menú Principal</button>
+                    </div>
                 </div>
             </div>
         </div>

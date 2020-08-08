@@ -11,8 +11,8 @@
                     <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
                     <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
                     <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa')"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
-                    <a (click)="observarBono = !observarBono"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
-                    <a (click)="agregarBackorder = !agregarBackorder"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
+                    <a (click)="changeFlag('observarBono')"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
+                    <a (click)="changeFlag('agregarBackorder')"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
 
                 </div>
             </div>
@@ -219,7 +219,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="expectativa=!expectativa">Cerrar</button>
-                                <<<<<<< HEAD </div>
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button> ======= >>>>>>> 0cc0c87d78c0c5a4a577524f9ee05b155e9ef682
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button>
                                 </div>
                             </div>
                         </div>

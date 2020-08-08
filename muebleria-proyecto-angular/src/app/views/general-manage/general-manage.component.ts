@@ -155,6 +155,8 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     }else if( flag === "empleados"){
       this.sucursalPais = false ;
       this.empleados = !this.empleados;
@@ -164,6 +166,8 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     } else if (flag ==="salarios"){
       this.sucursalPais = false ;
       this.empleados = false;
@@ -173,6 +177,8 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     }else if (flag ==="despedir"){
       this.sucursalPais = false ;
       this.empleados = false;
@@ -182,6 +188,8 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     }else if (flag ==="contratar"){
       this.sucursalPais = false ;
       this.empleados = false;
@@ -191,6 +199,8 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     }else if (flag ==="rango"){
       this.sucursalPais = false ;
       this.empleados = false;
@@ -200,6 +210,8 @@ demandaNacional : string;
       this.rango = !this.rango;
       this.modificarSalario = false;
       this.expectativa = false;
+      this.agregarBackorder=false;
+      this.observarBono=false;
     }else if (flag ==="modificarSalario"){
       this.sucursalPais = false ;
       this.empleados = false;
@@ -209,7 +221,35 @@ demandaNacional : string;
       this.rango = false;
       this.modificarSalario = !this.modificarSalario;
       this.expectativa = false;
-    }else{
+      this.agregarBackorder=false;
+      this.observarBono=false;
+    }
+    else if (flag ==="agregarBackorder"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.agregarBackorder = !this.agregarBackorder;
+      this.expectativa = false;
+      this.modificarSalario=false;
+      this.observarBono=false;
+    }
+
+    else if (flag ==="observarBono"){
+      this.sucursalPais = false ;
+      this.empleados = false;
+      this.salarios = false;
+      this.despedir = false;
+      this.contratar = false;
+      this.rango = false;
+      this.observarBono = !this.observarBono;
+      this.expectativa = false;
+      this.agregarBackorder=false;
+      this.modificarSalario=false;
+    }
+    else{
       this.sucursalPais = false ;
       this.empleados = false;
       this.salarios = false;
@@ -217,6 +257,8 @@ demandaNacional : string;
       this.contratar = false;
       this.rango = false;
       this.modificarSalario = false;
+      this.agregarBackorder= false;
+      this.observarBono= false;
       this.expectativa =!this.expectativa ;
     }
 
