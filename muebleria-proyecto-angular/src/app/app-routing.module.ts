@@ -7,6 +7,7 @@ import { CeoComponent } from './views/ceo/ceo.component';
 import { ClientViewComponent } from './views/client-view/client-view.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ReportViewComponent } from './views/report-view/report-view.component';
+import { GeneralManageToolsComponent } from './views/general-manage-tools/general-manage-tools.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'report',
     component : ReportViewComponent
+  },
+  {
+    path: 'generalManageTools',
+    component : GeneralManageToolsComponent
   },
   {
     path: 'generalManage',
