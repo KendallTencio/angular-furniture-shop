@@ -252,6 +252,32 @@
             </div>
         </div>
     </div>
+
+
+    <span layout="row"><hr flex/></span>
+
+    <h3>Observar pedido</h3>
+    <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#pedidoDelivery" role="button" aria-expanded="false" aria-controls="pagoOnline" style="background-color: #091540;border-color: #091540;">
+    Trayecto del pedido
+  </a>
+    </p>
+    <div class="collapse" id="pedidoDelivery" data-parent="#myGroup">
+        <div class="card" style="width: 600px;">
+            <div class="card-body">
+                <img src="https://miro.medium.com/max/560/1*USGU8T3AHZuaZCxxaNgNYg.png" class="card-img-top">
+                <label style="margin-top: 2%;" class="form-check-label" for="pedidoDelivery2">
+                    Falta aproximadamente 1 día para la llegada.
+                </label>
+                <span layout="row"><hr flex/></span>
+                <button type="submit" data-toggle="collapse" href="#pedidoDelivery" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+        <span layout="row"><hr flex/></span>
+    </div>
+
+</div>
+
     <h3>Evaluación</h3>
     <div class="row">
         <div class="col-12">
@@ -540,7 +566,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Pedir</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Pedir</button>
         </div>
       </div>
     </div>

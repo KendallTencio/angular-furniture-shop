@@ -6,9 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-                       <li class="nav-item ">
+            <li class="nav-item ">
                 <a class="nav-link text-light" routerLink="/">Inicio </a>
-            </li> 
+            </li>
             <li class="nav-item ">
                 <a class="nav-link text-light" *ngIf="verificarClienteIniciado()" routerLink="/client">Catálogo </a>
             </li>
@@ -19,7 +19,10 @@
                 <a class="nav-link text-light" *ngIf="verificarGerenteNacionalIniciado()" routerLink="/nationalManage">Expectativa Mensual</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-light" *ngIf="verificarGerenteGeneralIniciado()" routerLink="/generalManage">Gestión</a>
+                <a class="nav-link text-light" *ngIf="verificarGerenteGeneralIniciado()" routerLink="/generalManage">Gestión de empleados</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-light" *ngIf="verificarGerenteGeneralIniciado()" routerLink="/generalManageTools">Gestión de productos</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link text-light" *ngIf="verificarCEOIniciado()" routerLink="/ceo">Gestión</a>
