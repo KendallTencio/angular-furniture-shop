@@ -48,7 +48,14 @@
                 Se abriría la selección de sillas si se selecciona una mesa.
             </div>
             <div>
-                <button type="button" class="btn btn-primary" (click)="agregarProductoACombo()">Generar combo</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#error" (click)="agregarProductoACombo();errorFlag2=!errorFlag2;changeMessageCombo()">Generar combo</button>
+            </div>
+            <div *ngIf="errorFlag2" class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div id="mensajeExito" [ngStyle]="{'background-color':'green'}" class="alert alert-danger elementToFadeInAndOut text-light  mt-5" role="alert">
+                        Nuevo combo generado.
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -92,8 +99,9 @@
     <p>
         <a class="btn btn-primary bottonSize" data-toggle="collapse" href="#crearPromo" role="button" aria-expanded="false" aria-controls="crearPromo" style="background-color: #091540;border-color: #091540;">
     Crear promoción
-  </a>
+    </a>
     </p>
+
     <div class="collapse" id="crearPromo" data-parent="#myGroup">
         <form>
             <span layout="row"><hr flex/></span>
@@ -113,7 +121,14 @@
                 <label for="duracion">Duración</label>
                 <input type="text" class="form-control" id="duracion" [(ngModel)]="duracionInput" [ngModelOptions]="{standalone: true}">
             </div>
-            <button type="button" class="btn btn-primary" (click)="crearPromocion()">Crear promoción</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#error" (click)="crearPromocion();changeMessage( 'Promoción creada.');">Crear promoción</button>
+            <div *ngIf="errorFlag" class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div id="mensajeExito" [ngStyle]="{'background-color':'green'}" class="alert alert-danger elementToFadeInAndOut text-light  mt-5" role="alert">
+                        {{message}}
+                    </div>
+                </div>
+            </div>
         </form>
         <span layout="row"><hr flex/></span>
     </div>
