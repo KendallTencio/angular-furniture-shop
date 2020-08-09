@@ -22,6 +22,9 @@ export class GeneralManageComponent implements OnInit {
   observarBono= false;
   expectativa = false;
   agregarBackorder = false;
+  errorFlag  = false;
+  colorMessage  = "green";
+  message = "";
   empleado = {
     "name" : "",
     "lastName":"",
@@ -63,6 +66,14 @@ export class GeneralManageComponent implements OnInit {
 
   getDemand(){
     this.demandaNacional= localStorage.getItem("demandaNacional");
+  }
+
+  changeMessage(message :string){
+    this.message = message;
+    this.errorFlag = !this.errorFlag;
+    setTimeout(()=>{
+      this.errorFlag = !this.errorFlag;
+    },2000)
   }
 
   changeFlag(flag:string){

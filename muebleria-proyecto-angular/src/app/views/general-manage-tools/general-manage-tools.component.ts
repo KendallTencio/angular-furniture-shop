@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';// import Jquery here  
+// import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-general-manage-tools',
@@ -17,7 +19,9 @@ public localFields: Object = { text: 'Title', value: 'id' };
 
 public localWaterMark: string = 'Seleccionar productos';
 public value: string[] = [];
-
+message = "";
+errorFlag =false;
+errorFlag2 =false;
 
 
 
@@ -94,6 +98,7 @@ duracionInput:string;
   ngOnInit() {
   }
 
+  
   agregarProductoACombo(){
 
   }
@@ -116,4 +121,28 @@ duracionInput:string;
     this.promos[i].state = 'Desactivada'
   }
 
+  // openDialog() {
+  //   const dialogRef = this.dialog.open();
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+
+  changeMessage(message :string){
+    this.message = message;
+    this.errorFlag = !this.errorFlag;
+    
+    setTimeout(()=>{
+      this.errorFlag = !this.errorFlag;
+     
+    },2000)
+  }
+  changeMessageCombo(){
+    
+    setTimeout(()=>{
+      this.errorFlag2 = !this.errorFlag2;
+     
+    },2000)
+  }
 }
