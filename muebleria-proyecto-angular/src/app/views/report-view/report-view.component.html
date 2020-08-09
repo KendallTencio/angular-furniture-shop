@@ -101,7 +101,7 @@
             <td>{{venta.Sucursal}}</td>
             <td>{{venta.Cantidad}}</td>
             <td>{{venta.Producto}}</td>
-            <td>₡{{venta.Total}}</td>
+            <td>${{venta.Total}}</td>
           </tr>
         </tbody>
       </table>
@@ -109,6 +109,8 @@
       <table class="table" *ngIf = "reporte == 1">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Sucursal</th>
             <th scope="col">Producto</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Total</th>
@@ -116,9 +118,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let venta of listaProductos; let i = index">
-            <th scope="row">{{venta.Producto}}</th>
+            <th scope="row">{{venta.ID}}</th>
+            <td>{{venta.Sucursal}}</td>
+            <td>{{venta.Producto}}</td>
             <td>{{venta.Cantidad}}</td>
-            <td>₡{{venta.Total}}</td>
+            <td>${{venta.Total}}</td>
           </tr>
         </tbody>
       </table>
@@ -141,7 +145,7 @@
             <td>{{venta.Sucursal}}</td>
             <td>{{venta.Cantidad}}</td>
             <td>{{venta.Producto}}</td>
-            <td>₡{{venta.Total}}</td>
+            <td>${{venta.Total}}</td>
           </tr>
         </tbody>
       </table>
@@ -164,7 +168,7 @@
             <td>{{venta.Sucursal}}</td>
             <td>{{venta.Cantidad}}</td>
             <td>{{venta.Producto}}</td>
-            <td>₡{{venta.Total}}</td>
+            <td>${{venta.Total}}</td>
           </tr>
         </tbody>
       </table>
@@ -179,7 +183,7 @@
         <tbody>
           <tr *ngFor="let venta of listaGenerales; let i = index">
             <th scope="row">{{venta.Fecha}}</th>
-            <td>₡{{venta.Total}}</td>
+            <td>${{venta.Total}}</td>
           </tr>
         </tbody>
       </table>

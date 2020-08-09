@@ -113,18 +113,14 @@ export class ReportViewComponent implements OnInit {
   }
 
   generarProductos(_producto:String){
-    var cantidad = 0;
-    var total = 0;
     console.log(_producto);
     this.listaVentasTotales.forEach(element => {
       element.Productos.forEach(products => {
         if(products.Producto == _producto){
-          cantidad += products.Cantidad;
-          total += products.Total;
+          this.listaProductos.push({"ID" : element.ID, "Sucursal" : element.Sucursal ,"Producto" : _producto, "Cantidad" : products.Cantidad, "Total" : products.Total});
         }
       });
     });
-    this.listaProductos.push({"Producto" : _producto, "Cantidad" : cantidad, "Total" : total});
   }
 
   fechaVer(){
