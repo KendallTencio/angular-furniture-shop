@@ -1,40 +1,69 @@
 <div style="margin-top: 15% ;">
 
+
+
+    <!-- Botón de Modal Inicio de sesión-->
     <div *ngIf="!authService.loggedIn()">
+        <h1 class="text-center mt-lg-5 titulos ">¿Ya tienes cuenta?</h1>
 
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="titulos">Iniciar Sesión</h1>
-            </div>
+        <div class="text-centered d-flex justify-content-center align-items-center">
+            <button type="button" class="btn btn-primary text-center terceColor btn-lg" data-toggle="modal" data-target="#modalInicio">
+                INICIA SESIÓN
+            </button>
         </div>
-        <div class="row mt-3 ">
-            <div class="col-12 d-flex justify-content-center">
-                <form class="loginForm ">
-                    <div class="form-group ">
-                        <label for="exampleInputEmail1">Correo electrónico*</label>
-                        <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Contraseña*</label>
-                        <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group">
-                        <label class="text-danger">*Campos Requeridos.</label>
+    </div>
 
-                    </div>
+    <!-- Modal de inicio de sesión -->
+    <div class="modal fade" id="modalInicio" tabindex="-1" aria-labelledby="modalInicioLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInicioLabel">Iniciando sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <div *ngIf="!authService.loggedIn()"> -->
+
                     <div class="row">
-                        <div class="col-12 d-flex justify-content-center">
-                            <button type="button" class="btn btn-dark btn-lg text-center terceColor" (click)="login();">Iniciar</button>
-                        </div>
-                        <div *ngIf=" errorFlag " class="alert alert-danger elementToFadeInAndOut mt-5 " role="alert ">
-                            Correo incorrecto o contraseña. Vuelva a intentarlo!
+                        <div class="col-12 text-center">
+                            <h1 class="titulos">Iniciar Sesión</h1>
                         </div>
                     </div>
-                </form>
+                    <div class="row mt-3 ">
+                        <div class="col-12 d-flex justify-content-center">
+                            <form class="loginForm ">
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1">Correo electrónico*</label>
+                                    <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña*</label>
+                                    <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-danger">*Campos Requeridos.</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <button type="button" class="btn btn-dark btn-lg text-center terceColor" data-dismiss="modal" (click)="login();">Iniciar</button>
+                                    </div>
+                                    <div *ngIf=" errorFlag " class="alert alert-danger elementToFadeInAndOut mt-5 " role="alert ">
+                                        Correo incorrecto o contraseña. Vuelva a intentarlo!
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--  </div> -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 
     <h1 class="text-center mt-lg-5 titulos ">Bienvenido a</h1>
     <div class="text-centered d-flex justify-content-center image-circle align-items-center">

@@ -1,53 +1,57 @@
-<div class="row " style="margin-top:15%; margin-bottom: 25%;">
-    <div class="col-lg-5 col-md-5 col-sm-12">
-        <div class="card cuartoColor">
+<div class="row " style="margin-top:15%; margin-bottom: 25%; ">
+
+    <div class="col-lg-5 col-md-5 col-sm-12 ">
+        <div class="card cuartoColor ">
             <div class="card-body">
                 <div id="mySidenav" class="sidenav">
-                    <a (click)="changeFlag('sucursal')"><i *ngIf="sucursalPais" class="arrow right"></i> Lista Sucursales del País </a>
-                    <a (click)="changeFlag('empleados')"><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
-                    <a (click)="changeFlag('despedir')"><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
-                    <a (click)="changeFlag('contratar')"> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
-                    <a (click)="changeFlag('salarios')"><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
-                    <a (click)="changeFlag('rango')"><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
-                    <a (click)="changeFlag('rangoBono')"><i *ngIf="rangoBono " class="arrow right"></i> Definir Bono Vendedor por Pedido  </a>
-                    <a (click)="changeFlag('modificarSalario')"><i *ngIf="modificarSalario" class="arrow right"></i> Modificar Salario Empleado  </a>
-                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa');getDemand();"><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
-                    <a (click)="changeFlag('observarBono')"><i *ngIf="observarBono" class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
-                    <a (click)="changeFlag('agregarBackorder')"><i *ngIf="agregarBackorder" class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
+                    <a (click)="changeFlag( 'sucursal') "><i *ngIf="sucursalPais " class="arrow right"></i> Lista Sucursales del País </a>
+                    <a (click)="changeFlag( 'empleados') "><i *ngIf="empleados " class="arrow right"></i> Lista Empleados</a>
+                    <a (click)="changeFlag( 'despedir') "><i *ngIf="despedir " class="arrow right"></i> Despedir Empleado </a>
+                    <a (click)="changeFlag( 'contratar') "> <i *ngIf="contratar " class="arrow right"></i> Contratar Empleado </a>
+                    <a (click)="changeFlag( 'salarios') "><i *ngIf="salarios " class="arrow right"></i> Observar Salarios  </a>
+                    <a (click)="changeFlag( 'rango') "><i *ngIf="rango " class="arrow right"></i> Definir Rango de Salario por Puesto  </a>
+                    <a (click)="changeFlag( 'rangoBono') "><i *ngIf="rangoBono " class="arrow right"></i> Definir Bono Vendedor por Pedido  </a>
+                    <a (click)="changeFlag( 'modificarSalario') "><i *ngIf="modificarSalario " class="arrow right"></i> Modificar Salario Empleado  </a>
+                    <a data-toggle="modal" data-target="#expectativaModal" (click)="changeFlag('expectativa');getDemand(); "><i *ngIf="expectativa" class="arrow right"></i> Verificar Expectativa de Demanda Mensual  </a>
+                    <a (click)="changeFlag( 'observarBono') "><i *ngIf="observarBono " class="arrow right"></i> Observar Bono Vendedores por Pedido </a>
+                    <a (click)="changeFlag( 'agregarBackorder') "><i *ngIf="agregarBackorder " class="arrow right"></i> Agregar Productos Solicitados al Backorder</a>
                 </div>
             </div>
         </div>
+        <div *ngIf="errorFlag" [ngStyle]="{'background-color':'green'}" class="alert alert-danger text-light elementToFadeInAndOut mt-5" role="alert">
+            {{message}}
+        </div>
     </div>
-    <div class="col-lg-7 col-md-7  col-sm-12 ">
-        <div class="card ">
+    <div class="col-lg-7 col-md-7 col-sm-12">
+        <div class="card">
             <div class="card-header terceColor text-light">
                 Resultados
             </div>
             <div *ngIf="sucursalPais" class="card-body">
-                <table class="table table-bordered ">
-                    <thead class="thead-light ">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
                         <tr>
-                            <th scope="col ">Nombre</th>
-                            <th scope="col ">Lugar</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Lugar</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let sucursal of listaSucursalesPais ">
+                    <tbody *ngFor="let sucursal of listaSucursalesPais">
                         <tr>
                             <td>San José S.A</td>
                             <td>{{sucursal.name}}</td>
                         </tr>
                 </table>
             </div>
-            <div *ngIf="empleados " class="card-body ">
+            <div *ngIf="empleados" class="card-body">
                 <table class="table table-bordered">
-                    <thead class="thead-light ">
+                    <thead class="thead-light">
                         <tr>
-                            <th scope="col ">Nombre</th>
-                            <th scope="col ">Puesto</th>
-                            <th scope="col ">Salario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Salario</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let empleado of listaEmpleados ">
+                    <tbody *ngFor="let empleado of listaEmpleados">
                         <tr>
                             <td>{{empleado.name}}</td>
                             <td>{{empleado.position}}</td>
@@ -55,22 +59,22 @@
                         </tr>
                 </table>
             </div>
-            <div *ngIf="salarios " class="card-body ">
+            <div *ngIf="salarios" class="card-body">
                 <table class="table table-bordered">
-                    <thead class="thead-light ">
+                    <thead class="thead-light">
                         <tr>
-                            <th scope="col ">Nombre</th>
-                            <th scope="col ">Salario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Salario</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let empleado of listaEmpleados ">
+                    <tbody *ngFor="let empleado of listaEmpleados">
                         <tr>
                             <td>{{empleado.name}}</td>
                             <td>${{empleado.salary}}</td>
                         </tr>
                 </table>
             </div>
-            <div *ngIf="despedir " class="card-body ">
+            <div *ngIf="despedir" class="card-body">
                 <form>
                     <h4 class="text-center pb-5">Despedir empleado</h4>
                     <div class="form-group">
@@ -85,9 +89,9 @@
                         <label for="exampleFormControlTextarea1">Puesto del Empleado</label>
                         <textarea [(ngModel)]="empleado.position" name="position" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Descripción o razón del despedido</label>
-                        <textarea class="form-control " id="exampleFormControlTextarea1 " rows="3 "></textarea>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripción o razón del despedido</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
@@ -96,42 +100,42 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="contratar " class="card-body ">
+            <div *ngIf="contratar " class="card-body">
                 <form>
-                    <h4 class="text-center pb-5 titulos titulos ">Contratar empleado</h4>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Nombre del empleado*</label>
-                        <input name="name " type="text " class="form-control " id="exampleInputPassword1 ">
+                    <h4 class="text-center pb-5 titulos titulos">Contratar empleado</h4>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nombre del empleado*</label>
+                        <input name="name" type="text" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Apellido del empleado*</label>
-                        <input name="lastname " type="text " class="form-control " id="exampleInputPassword1 ">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Apellido del empleado*</label>
+                        <input name="lastname" type="text" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Fecha de nacimiento*</label>
-                        <input name="fecha " type="date " class="form-control " id="exampleInputPassword1 ">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Fecha de nacimiento*</label>
+                        <input name="fecha" type="date" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Puesto*</label>
-                        <input name="fecha " type="text " class="form-control " id="exampleInputPassword1 ">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Puesto*</label>
+                        <input name="fecha" type="text" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Salario*</label>
-                        <input class="form-control " type="number ">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Salario*</label>
+                        <input class="form-control" type="number">
                     </div>
-                    <div class="row ">
-                        <div class="col-12 d-flex justify-content-center ">
-                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="contratar=!contratar ">Contratar</button>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark btn-lg text-center terceColor" (click)="contratar=!contratar; changeMessage( 'Empleado Contratado.')">Contratar</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div *ngIf="rango " class="card-body ">
+            <div *ngIf="rango" class="card-body">
                 <form>
-                    <h4 class="text-center pb-5 titulos ">Definir Rango por puesto</h4>
-                    <div class="form-group ">
-                        <label for="validationCustom04 ">Puestos</label>
-                        <select name="state " class="custom-select " id="validationCustom04 " required>
+                    <h4 class="text-center pb-5 titulos">Definir Rango por puesto</h4>
+                    <div class="form-group">
+                        <label for="validationCustom04">Puestos</label>
+                        <select name="state" class="custom-select" id="validationCustom04" required>
                             <option selected disabled value=" ">Escoger...</option>
                             <option>Administrador de proyectos</option>
                             <option>Jefe de bodega</option>
@@ -139,38 +143,38 @@
                             <option>Albañil</option>
                         </select>
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1 ">Salario minímo</label>
-                        <input name="fecha " type="number " class="form-control " id="exampleInputPassword1 ">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Salario minímo</label>
+                        <input name="fecha" type="number" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Salario máximo</label>
-                        <input class="form-control " type="number ">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Salario máximo</label>
+                        <input class="form-control" type="number">
                     </div>
-                    <div class="row ">
-                        <div class="col-12 d-flex justify-content-center ">
-                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="rango=!rango ">Definir</button>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark btn-lg text-center terceColor" (click)="rango=!rango; changeMessage( 'Rango definido.')">Definir</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div *ngIf="rangoBono " class="card-body ">
+            <div *ngIf="rangoBono" class="card-body">
                 <form>
-                    <h4 class="text-center pb-5 titulos ">Definir Bono de Vendedor por pedido</h4>
-                    <div class="form-group ">
-                        <label for="validationCustom04 ">Empleados</label>
-                        <select name="state " class="custom-select " id="validationCustom04 " required>
+                    <h4 class="text-center pb-5 titulos">Definir Bono de Vendedor por pedido</h4>
+                    <div class="form-group">
+                        <label for="validationCustom04">Empleados</label>
+                        <select name="state" class="custom-select" id="validationCustom04" required>
                             <option selected disabled value=" ">Escoger...</option>
                             <option *ngFor="let empleado of listaEmpleados;">{{empleado.name}}</option>
                         </select>
                     </div>
-                    <div class="form-group ">
-                        <label for="exampleFormControlTextarea1 ">Bono por pedido</label>
-                        <input class="form-control " type="number ">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Bono por pedido</label>
+                        <input class="form-control" type="number">
                     </div>
-                    <div class="row ">
-                        <div class="col-12 d-flex justify-content-center ">
-                            <button type="button " class="btn btn-dark btn-lg text-center terceColor " (click)="rangoBono=!rangoBono ">Definir</button>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark btn-lg text-center terceColor" (click)="rangoBono=!rangoBono; changeMessage( 'Bono Definido.')">Definir</button>
                         </div>
                     </div>
                 </form>
@@ -201,7 +205,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title titulos " id="exampleModalLabel">Definir nuevo salario </h5>
+                                <h5 class="modal-title titulos" id="exampleModalLabel">Definir nuevo salario </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -217,7 +221,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-dark terceColor " data-dismiss="modal" (click)="modificarSalario=!modificarSalario">Guardar cambios</button>
+                                <button type="button" class="btn btn-dark terceColor" data-dismiss="modal" (click)="modificarSalario=!modificarSalario;changeMessage( 'Salario definido.')">Guardar cambios</button>
                             </div>
                         </div>
                     </div>
@@ -226,7 +230,7 @@
             <div *ngIf="expectativa" class="card-body">
                 <!-- Modal -->
                 <div class="modal fade" id="expectativaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog ">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Expectativa de Demanda Mensual </h5>
@@ -260,7 +264,7 @@
                                 <form>
                                     <div class="form-group">
                                         <label>Nombre Completo del Empleado:  </label>
-                                        <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}}">
+                                        <input class="form-control" type="text" value="{{empleado.name}} {{empleado.lastName}} ">
                                     </div>
                                     <div class="form-group">
                                         <label>Sucursal en la que laboraba el empleado: </label>
@@ -268,7 +272,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Puesto del Empleado: </label>
-                                        <input class="form-control" type="text" value="{{empleado.position}}">
+                                        <input class="form-control" type="text" value="{{empleado.position}} ">
                                     </div>
                                     <div class="form-group">
                                         <label>Monto recomendado de liquidación: </label>
@@ -283,22 +287,23 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="despedir=!despedir">Cerrar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-dark terceColor" data-dismiss="modal" (click)="despedir=!despedir;changeMessage( 'Empleado despedido.')">Confirmar</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div *ngIf="observarBono" class="card-body">
-                <ul *ngFor="let vendedor of listaVendedor" class="list-group">
-                    <li class="list-group-item">{{vendedor.name}} y su bono por pedido realizado es: ${{vendedor.bonus}} </li>
+                <ul *ngFor="let vendedor of listaVendedor " class="list-group ">
+                    <li class="list-group-item ">{{vendedor.name}} y su bono por pedido realizado es: ${{vendedor.bonus}} </li>
                 </ul>
             </div>
             <div *ngIf="agregarBackorder" class="card-body">
                 <h4>Seleccionar Pedidos</h4>
                 <div *ngFor="let pedido of listaPedidos" class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}}">
-                    <label class="custom-control-label" for="{{pedido.nombrePedido}}">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
+                    <input type="checkbox" class="custom-control-input" id="{{pedido.nombrePedido}} ">
+                    <label class="custom-control-label" for="{{pedido.nombrePedido}} ">{{pedido.nombrePedido}} {{pedido.material}} {{pedido.type}} {{pedido.Medidas}}</label>
                 </div>
                 <div class="row" style="margin-top: 2%;">
                     <div class="col-12 d-flex justify-content-center">
@@ -329,5 +334,6 @@
         </div>
     </div>
 </div>
+
 
 <span layout="row"><hr flex/></span>
